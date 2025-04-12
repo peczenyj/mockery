@@ -1,16 +1,37 @@
 package template
 
-import "github.com/vektra/mockery/v3/template_funcs"
+import (
+	"github.com/vektra/mockery/v3/template_funcs"
+)
 
 // Interface is the data used to generate a mock for some interface.
 type Interface struct {
+	Comments Comments
+	Methods  []Method
 	// Name is the name of the original interface.
 	Name string
 	// StructName is the chosen name for the struct that will implement the interface.
 	StructName   string
-	TypeParams   []TypeParam
-	Methods      []Method
 	TemplateData TemplateData
+	TypeParams   []TypeParam
+}
+
+func NewInterface(
+	name string,
+	structName string,
+	typeParams []TypeParam,
+	methods []Method,
+	templateData TemplateData,
+	comments Comments,
+) Interface {
+	return Interface{
+		Name:         name,
+		StructName:   structName,
+		TypeParams:   typeParams,
+		Methods:      methods,
+		TemplateData: templateData,
+		Comments:     comments,
+	}
 }
 
 func (m Interface) TypeConstraintTest() string {

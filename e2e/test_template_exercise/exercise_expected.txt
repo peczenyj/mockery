@@ -12,8 +12,24 @@ $import.Qualifier: constraints
 
 
 # MOCK: 0
-$mock.Name: Exercise
-$mock.StructName: MockExercise
+$interface.Name: Exercise
+$interface.StructName: MockExercise
+
+# COMMENTS
+$interface.Comments.GenDeclDoc.Text: GenDecl comments
+
+$interface.Comments.GenDeclDoc.List:
+// GenDecl comments
+$interface.Comments.TypeSpecDoc.Text: Exercise is an interface that is used to render a template that exercises
+all parts of the template data passed to the template.
+
+$interface.Comments.TypeSpecDoc.List:
+// Exercise is an interface that is used to render a template that exercises
+// all parts of the template data passed to the template.
+$interface.Comments.TypeSpecComment.Text: This is a line comment
+
+$interface.Comments.TypeSpecComment.List:
+// This is a line comment
 
 
 # TYPE PARAM: 0

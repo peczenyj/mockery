@@ -392,7 +392,7 @@ func validateSchema(ctx context.Context, data template.Data, schema *gojsonschem
 
 func (g *TemplateGenerator) Generate(
 	ctx context.Context,
-	interfaces []*config.Interface,
+	interfaces []*Interface,
 ) ([]byte, error) {
 	log := zerolog.Ctx(ctx)
 	log.UpdateContext(func(c zerolog.Context) zerolog.Context {
@@ -441,13 +441,14 @@ func (g *TemplateGenerator) Generate(
 		if err != nil {
 			return nil, err
 		}
-		mockData = append(mockData, template.Interface{
-			Name:         ifaceMock.Name,
-			StructName:   *ifaceMock.Config.StructName,
-			TypeParams:   tParams,
-			Methods:      methods,
-			TemplateData: ifaceMock.Config.TemplateData,
-		})
+		mockData = append(mockData, template.NewInterface(
+			ifaceMock.Name,
+			*ifaceMock.Config.StructName,
+			tParams,
+			methods,
+			ifaceMock.Config.TemplateData,
+			template.NewComments(ifaceMock.TypeSpec, ifaceMock.GenDecl),
+		))
 	}
 
 	data := template.NewData(

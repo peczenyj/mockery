@@ -102,7 +102,7 @@ type InterfaceCollection struct {
 	outFilePath *pathlib.Path
 	srcPkg      *packages.Package
 	outPkgName  string
-	interfaces  []*config.Interface
+	interfaces  []*internal.Interface
 	template    string
 }
 
@@ -118,12 +118,12 @@ func NewInterfaceCollection(
 		outFilePath: outFilePath,
 		srcPkg:      srcPkg,
 		outPkgName:  outPkgName,
-		interfaces:  make([]*config.Interface, 0),
+		interfaces:  make([]*internal.Interface, 0),
 		template:    templ,
 	}
 }
 
-func (i *InterfaceCollection) Append(ctx context.Context, iface *config.Interface) error {
+func (i *InterfaceCollection) Append(ctx context.Context, iface *internal.Interface) error {
 	collectionFilepath := i.outFilePath.String()
 	interfaceFilepath := iface.Config.FilePath().String()
 	log := zerolog.Ctx(ctx).With().
@@ -263,7 +263,7 @@ func (r *RootApp) Run() error {
 		}
 		ifaceConfig := pkgConfig.GetInterfaceConfig(ctx, iface.Name)
 		for _, ifaceConfig := range ifaceConfig.Configs {
-			if err := ifaceConfig.ParseTemplates(ifaceCtx, iface, iface.Pkg); err != nil {
+			if err := ifaceConfig.ParseTemplates(ifaceCtx, iface.FileName, iface.Name, iface.Pkg); err != nil {
 				log.Err(err).Msg("Can't parse config templates for interface")
 				return err
 			}
@@ -282,8 +282,10 @@ func (r *RootApp) Run() error {
 			}
 			if err := mockFileToInterfaces[filePath.String()].Append(
 				ctx,
-				config.NewInterface(
+				internal.NewInterface(
 					iface.Name,
+					iface.TypeSpec,
+					iface.GenDecl,
 					iface.FileName,
 					iface.File,
 					iface.Pkg,
@@ -304,7 +306,7 @@ func (r *RootApp) Run() error {
 		if err != nil {
 			return err
 		}
-		if err := packageConfig.Config.ParseTemplates(ctx, nil, interfacesInFile.srcPkg); err != nil {
+		if err := packageConfig.Config.ParseTemplates(ctx, "", "", interfacesInFile.srcPkg); err != nil {
 			return err
 		}
 

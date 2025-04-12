@@ -6,10 +6,27 @@ $import.Path: {{ $import.Path }}
 $import.Qualifier: {{ $import.Qualifier }}
 {{ end }}
 
-{{ range $i, $mock := .Interfaces }}
+{{ range $i, $interface := .Interfaces }}
 # MOCK: {{ $i }}
-$mock.Name: {{ $mock.Name }}
-$mock.StructName: {{ $mock.StructName }}
+$interface.Name: {{ $interface.Name }}
+$interface.StructName: {{ $interface.StructName }}
+
+# COMMENTS
+$interface.Comments.GenDeclDoc.Text: {{ $interface.Comments.GenDeclDoc.Text }}
+$interface.Comments.GenDeclDoc.List:
+{{- range $_, $comment := $interface.Comments.GenDeclDoc.List }}
+{{ $comment }}
+{{- end }}
+$interface.Comments.TypeSpecDoc.Text: {{ $interface.Comments.TypeSpecDoc.Text }}
+$interface.Comments.TypeSpecDoc.List:
+{{- range $_, $comment := $interface.Comments.TypeSpecDoc.List }}
+{{ $comment }}
+{{- end }}
+$interface.Comments.TypeSpecComment.Text: {{ $interface.Comments.TypeSpecComment.Text }}
+$interface.Comments.TypeSpecComment.List:
+{{- range $_, $comment := $interface.Comments.TypeSpecComment.List }}
+{{ $comment }}
+{{- end }}
 
 {{ range $j, $typeparam := .TypeParams }}
 # TYPE PARAM: {{ $j }}

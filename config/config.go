@@ -38,24 +38,6 @@ import (
 	"golang.org/x/tools/go/packages"
 )
 
-type Interface struct {
-	Name     string // Name of the type to be mocked.
-	FileName string
-	File     *ast.File
-	Pkg      *packages.Package
-	Config   *Config
-}
-
-func NewInterface(name string, filename string, file *ast.File, pkg *packages.Package, config *Config) *Interface {
-	return &Interface{
-		Name:     name,
-		FileName: filename,
-		File:     file,
-		Pkg:      pkg,
-		Config:   config,
-	}
-}
-
 // TemplateData is the data sent to the template for the config file.
 type TemplateData struct {
 	// ConfigDir is the directory of where the mockery config file is located.
@@ -589,15 +571,12 @@ var ErrInfiniteLoop = fmt.Errorf("infinite loop in template variables detected")
 // interface being mocked. If this argument is nil, interface-specific template
 // variables will be set to the empty string. The srcPkg is also needed to
 // satisfy template variables regarding the source package.
-func (c *Config) ParseTemplates(ctx context.Context, iface *Interface, srcPkg *packages.Package) error {
+func (c *Config) ParseTemplates(ctx context.Context, ifaceFileName string, ifaceName string, srcPkg *packages.Package) error {
 	log := zerolog.Ctx(ctx)
 
-	mock := ""
-	if iface != nil {
-		mock = "mock"
-		if ast.IsExported(iface.Name) {
-			mock = "Mock"
-		}
+	mock := "mock"
+	if ast.IsExported(ifaceName) {
+		mock = "Mock"
 	}
 
 	var (
@@ -606,24 +585,23 @@ func (c *Config) ParseTemplates(ctx context.Context, iface *Interface, srcPkg *p
 		interfaceFile        string
 		interfaceName        string
 	)
-	if iface != nil {
-		interfaceFile = iface.FileName
-		interfaceName = iface.Name
+	interfaceFile = ifaceFileName
+	interfaceName = ifaceName
 
-		workingDir, err := os.Getwd()
-		if err != nil {
-			return fmt.Errorf("get working directory: %w", err)
-		}
-		interfaceDirPath := pathlib.NewPath(iface.FileName).Parent()
-		interfaceDir = interfaceDirPath.String()
-		interfaceDirRelativePath, err := interfaceDirPath.RelativeToStr(workingDir)
-		if err != nil {
-			log.Debug().Err(err).Msg("can't make path relative to working dir, setting to './'")
-			interfaceDirRelative = "."
-		} else {
-			interfaceDirRelative = interfaceDirRelativePath.String()
-		}
+	workingDir, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("get working directory: %w", err)
 	}
+	interfaceDirPath := pathlib.NewPath(ifaceFileName).Parent()
+	interfaceDir = interfaceDirPath.String()
+	interfaceDirRelativePath, err := interfaceDirPath.RelativeToStr(workingDir)
+	if err != nil {
+		log.Debug().Err(err).Msg("can't make path relative to working dir, setting to './'")
+		interfaceDirRelative = "."
+	} else {
+		interfaceDirRelative = interfaceDirRelativePath.String()
+	}
+
 	// data is the struct sent to the template parser
 	data := TemplateData{
 		ConfigDir:            filepath.Dir(*c.ConfigFile),
