@@ -1,18 +1,13 @@
 package template
 
 import (
-	"go/ast"
-
 	"github.com/vektra/mockery/v3/template_funcs"
 )
 
 // Interface is the data used to generate a mock for some interface.
 type Interface struct {
-	// Comment contains line comments, if any.
-	Comment CommentGroup
-	// Doc contains the associated documentation, if any.
-	Doc     CommentGroup
-	Methods []Method
+	Comments Comments
+	Methods  []Method
 	// Name is the name of the original interface.
 	Name string
 	// StructName is the chosen name for the struct that will implement the interface.
@@ -27,32 +22,15 @@ func NewInterface(
 	typeParams []TypeParam,
 	methods []Method,
 	templateData TemplateData,
-	comment *ast.CommentGroup,
-	doc *ast.CommentGroup,
+	comments Comments,
 ) Interface {
-	var commentGroup, docGroup CommentGroup
-	if comment != nil {
-		commentGroup.Text = comment.Text()
-		commentGroup.List = []Comment{}
-		for _, comment := range comment.List {
-			commentGroup.List = append(commentGroup.List, Comment(comment.Text))
-		}
-	}
-	if doc != nil {
-		docGroup.Text = doc.Text()
-		docGroup.List = []Comment{}
-		for _, comment := range doc.List {
-			docGroup.List = append(docGroup.List, Comment(comment.Text))
-		}
-	}
 	return Interface{
 		Name:         name,
 		StructName:   structName,
 		TypeParams:   typeParams,
 		Methods:      methods,
 		TemplateData: templateData,
-		Comment:      commentGroup,
-		Doc:          docGroup,
+		Comments:     comments,
 	}
 }
 

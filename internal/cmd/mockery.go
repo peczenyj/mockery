@@ -285,6 +285,7 @@ func (r *RootApp) Run() error {
 				internal.NewInterface(
 					iface.Name,
 					iface.TypeSpec,
+					iface.GenDecl,
 					iface.FileName,
 					iface.File,
 					iface.Pkg,

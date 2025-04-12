@@ -447,8 +447,7 @@ func (g *TemplateGenerator) Generate(
 			tParams,
 			methods,
 			ifaceMock.Config.TemplateData,
-			ifaceMock.TypeSpec.Comment,
-			ifaceMock.TypeSpec.Doc,
+			template.NewComments(ifaceMock.TypeSpec, ifaceMock.GenDecl),
 		))
 	}
 

@@ -6,6 +6,7 @@ import (
 	"golang.org/x/exp/constraints"
 )
 
+// GenDecl comments
 type (
 	// Exercise is an interface that is used to render a template that exercises
 	// all parts of the template data passed to the template.

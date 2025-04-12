@@ -10,6 +10,7 @@ import (
 type Interface struct {
 	Name     string // Name of the type to be mocked.
 	TypeSpec *ast.TypeSpec
+	GenDecl  *ast.GenDecl
 	FileName string
 	File     *ast.File
 	Pkg      *packages.Package
@@ -19,6 +20,7 @@ type Interface struct {
 func NewInterface(
 	name string,
 	typeSpec *ast.TypeSpec,
+	genDecl *ast.GenDecl,
 	filename string,
 	file *ast.File,
 	pkg *packages.Package,
@@ -27,6 +29,7 @@ func NewInterface(
 	return &Interface{
 		Name:     name,
 		TypeSpec: typeSpec,
+		GenDecl:  genDecl,
 		FileName: filename,
 		File:     file,
 		Pkg:      pkg,

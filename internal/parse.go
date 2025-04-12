@@ -69,9 +69,9 @@ func (p *Parser) ParsePackages(ctx context.Context, packageNames []string) ([]*I
 
 			scope := pkg.Types.Scope()
 			for _, declaredInterface := range nv.declaredInterfaces {
-				ifaceLog := fileLog.With().Str("interface", declaredInterface.Name.Name).Logger()
+				ifaceLog := fileLog.With().Str("interface", declaredInterface.typeSpec.Name.Name).Logger()
 
-				obj := scope.Lookup(declaredInterface.Name.Name)
+				obj := scope.Lookup(declaredInterface.typeSpec.Name.Name)
 
 				typ, ok := obj.Type().(*types.Named)
 				if !ok {
@@ -91,7 +91,8 @@ func (p *Parser) ParsePackages(ctx context.Context, packageNames []string) ([]*I
 				}
 				interfaces = append(interfaces, NewInterface(
 					name,
-					declaredInterface,
+					declaredInterface.typeSpec,
+					declaredInterface.genDecl,
 					file,
 					fileSyntax,
 					pkg,

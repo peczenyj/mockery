@@ -10,12 +10,23 @@ $import.Qualifier: {{ $import.Qualifier }}
 # MOCK: {{ $i }}
 $interface.Name: {{ $interface.Name }}
 $interface.StructName: {{ $interface.StructName }}
-$interface.Doc.Text: {{ $interface.Doc.Text }}
-$interface.Doc.List:
-{{- range $_, $comment := $interface.Doc.List }}
+
+# COMMENTS
+$interface.Comments.GenDeclDoc.Text: {{ $interface.Comments.GenDeclDoc.Text }}
+$interface.Comments.GenDeclDoc.List:
+{{- range $_, $comment := $interface.Comments.GenDeclDoc.List }}
 {{ $comment }}
 {{- end }}
-$interface.Comment.Text: {{ $interface.Comment.Text }}
+$interface.Comments.TypeSpecDoc.Text: {{ $interface.Comments.TypeSpecDoc.Text }}
+$interface.Comments.TypeSpecDoc.List:
+{{- range $_, $comment := $interface.Comments.TypeSpecDoc.List }}
+{{ $comment }}
+{{- end }}
+$interface.Comments.TypeSpecComment.Text: {{ $interface.Comments.TypeSpecComment.Text }}
+$interface.Comments.TypeSpecComment.List:
+{{- range $_, $comment := $interface.Comments.TypeSpecComment.List }}
+{{ $comment }}
+{{- end }}
 
 {{ range $j, $typeparam := .TypeParams }}
 # TYPE PARAM: {{ $j }}
