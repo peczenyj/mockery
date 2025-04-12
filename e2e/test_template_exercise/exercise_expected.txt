@@ -12,8 +12,16 @@ $import.Qualifier: constraints
 
 
 # MOCK: 0
-$mock.Name: Exercise
-$mock.StructName: MockExercise
+$interface.Name: Exercise
+$interface.StructName: MockExercise
+$interface.Doc.Text: Exercise is an interface that is used to render a template that exercises
+all parts of the template data passed to the template.
+
+$interface.Doc.List:
+// Exercise is an interface that is used to render a template that exercises
+// all parts of the template data passed to the template.
+$interface.Comment.Text: This is a line comment
+
 
 
 # TYPE PARAM: 0

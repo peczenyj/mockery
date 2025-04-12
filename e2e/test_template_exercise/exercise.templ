@@ -6,10 +6,16 @@ $import.Path: {{ $import.Path }}
 $import.Qualifier: {{ $import.Qualifier }}
 {{ end }}
 
-{{ range $i, $mock := .Interfaces }}
+{{ range $i, $interface := .Interfaces }}
 # MOCK: {{ $i }}
-$mock.Name: {{ $mock.Name }}
-$mock.StructName: {{ $mock.StructName }}
+$interface.Name: {{ $interface.Name }}
+$interface.StructName: {{ $interface.StructName }}
+$interface.Doc.Text: {{ $interface.Doc.Text }}
+$interface.Doc.List:
+{{- range $_, $comment := $interface.Doc.List }}
+{{ $comment }}
+{{- end }}
+$interface.Comment.Text: {{ $interface.Comment.Text }}
 
 {{ range $j, $typeparam := .TypeParams }}
 # TYPE PARAM: {{ $j }}

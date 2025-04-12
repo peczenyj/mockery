@@ -8,7 +8,6 @@ import (
 	"strings"
 
 	"github.com/rs/zerolog"
-	"github.com/vektra/mockery/v3/config"
 	"golang.org/x/tools/go/packages"
 )
 
@@ -38,9 +37,9 @@ func NewParser(buildTags []string) *Parser {
 	return p
 }
 
-func (p *Parser) ParsePackages(ctx context.Context, packageNames []string) ([]*config.Interface, error) {
+func (p *Parser) ParsePackages(ctx context.Context, packageNames []string) ([]*Interface, error) {
 	log := zerolog.Ctx(ctx)
-	interfaces := []*config.Interface{}
+	interfaces := []*Interface{}
 
 	packages, err := packages.Load(&p.conf, packageNames...)
 	if err != nil {
@@ -70,9 +69,9 @@ func (p *Parser) ParsePackages(ctx context.Context, packageNames []string) ([]*c
 
 			scope := pkg.Types.Scope()
 			for _, declaredInterface := range nv.declaredInterfaces {
-				ifaceLog := fileLog.With().Str("interface", declaredInterface).Logger()
+				ifaceLog := fileLog.With().Str("interface", declaredInterface.Name.Name).Logger()
 
-				obj := scope.Lookup(declaredInterface)
+				obj := scope.Lookup(declaredInterface.Name.Name)
 
 				typ, ok := obj.Type().(*types.Named)
 				if !ok {
@@ -90,9 +89,9 @@ func (p *Parser) ParsePackages(ctx context.Context, packageNames []string) ([]*c
 				if typ.Obj().Pkg() == nil {
 					continue
 				}
-
-				interfaces = append(interfaces, config.NewInterface(
+				interfaces = append(interfaces, NewInterface(
 					name,
+					declaredInterface,
 					file,
 					fileSyntax,
 					pkg,

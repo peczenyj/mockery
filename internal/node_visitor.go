@@ -8,19 +8,23 @@ import (
 	"github.com/rs/zerolog"
 )
 
+type declaredInterface struct {
+	typeSpec *ast.TypeSpec
+	genDecl  *ast.GenDecl
+}
 type NodeVisitor struct {
-	declaredInterfaces []string
+	declaredInterfaces []*ast.TypeSpec
 	ctx                context.Context
 }
 
 func NewNodeVisitor(ctx context.Context) *NodeVisitor {
 	return &NodeVisitor{
-		declaredInterfaces: make([]string, 0),
+		declaredInterfaces: make([]*ast.TypeSpec, 0),
 		ctx:                ctx,
 	}
 }
 
-func (nv *NodeVisitor) DeclaredInterfaces() []string {
+func (nv *NodeVisitor) DeclaredInterfaces() []*ast.TypeSpec {
 	return nv.declaredInterfaces
 }
 
@@ -30,7 +34,7 @@ func (nv *NodeVisitor) add(ctx context.Context, n *ast.TypeSpec) {
 		Str("node-name", n.Name.Name).
 		Str("node-type", fmt.Sprintf("%T", n.Type)).
 		Msg("found type declaration that is a possible interface")
-	nv.declaredInterfaces = append(nv.declaredInterfaces, n.Name.Name)
+	nv.declaredInterfaces = append(nv.declaredInterfaces, n)
 }
 
 func (nv *NodeVisitor) Visit(node ast.Node) ast.Visitor {
