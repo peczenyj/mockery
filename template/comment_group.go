@@ -7,7 +7,10 @@ import "go/ast"
 type Comment string
 
 type CommentGroup struct {
+	// List contains each individual line of the comments exactly as they appear
+	// in source, including comment characters.
 	List []Comment
+	// Text contains the text of the comments without comment characters.
 	Text string
 }
 
