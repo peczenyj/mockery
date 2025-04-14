@@ -101,7 +101,6 @@ func (m Method) argList(includeName bool) string {
 		} else {
 			params[i] = p.MethodArgNoName()
 		}
-
 	}
 	return strings.Join(params, ", ")
 }

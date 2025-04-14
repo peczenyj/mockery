@@ -17,21 +17,28 @@ func (p Param) Name() string {
 	return p.Var.Name
 }
 
+func (p Param) methodArg(includeNames bool) string {
+	var arg string
+	if includeNames {
+		arg += p.Name() + " "
+	}
+	if p.Variadic {
+		arg += fmt.Sprintf("...%s", p.TypeString()[2:])
+	} else {
+		arg += p.TypeString()
+	}
+	return arg
+}
+
 // MethodArg is the representation of the parameter in the function
 // signature, ex: 'name a.Type'.
 func (p Param) MethodArg() string {
-	if p.Variadic {
-		return fmt.Sprintf("%s ...%s", p.Name(), p.TypeString()[2:])
-	}
-	return fmt.Sprintf("%s %s", p.Name(), p.TypeString())
+	return p.methodArg(true)
 }
 
 // MethodArgNoName is the same as MethodArg except the argument name is not included.
 func (p Param) MethodArgNoName() string {
-	if p.Variadic {
-		return fmt.Sprintf("...%s", p.TypeString()[2:])
-	}
-	return p.TypeString()
+	return p.methodArg(false)
 }
 
 // CallName returns the string representation of the parameter to be
