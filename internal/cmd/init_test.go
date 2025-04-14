@@ -12,7 +12,7 @@ import (
 var expectedConfig string = `all: false
 dir: '{{.InterfaceDir}}'
 filename: mocks_test.go
-force-file-write: false
+force-file-write: true
 formatter: goimports
 log-level: info
 structname: '{{.Mock}}{{.InterfaceName}}'

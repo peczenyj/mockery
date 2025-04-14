@@ -71,7 +71,7 @@ func NewDefaultKoanf(ctx context.Context) (*koanf.Koanf, error) {
 		All:                         addr(false),
 		Dir:                         addr("{{.InterfaceDir}}"),
 		FileName:                    addr("mocks_test.go"),
-		ForceFileWrite:              addr(false),
+		ForceFileWrite:              addr(true),
 		Formatter:                   addr("goimports"),
 		LogLevel:                    addr("info"),
 		StructName:                  addr("{{.Mock}}{{.InterfaceName}}"),
