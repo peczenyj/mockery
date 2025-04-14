@@ -5235,3 +5235,89 @@ func (mock *MoqVariadicWithMultipleReturns) ResetCalls() {
 	mock.calls.Foo = nil
 	mock.lockFoo.Unlock()
 }
+
+// Ensure that MoqVariadicWithNoReturns does implement VariadicWithNoReturns.
+// If this is not the case, regenerate this file with mockery.
+var _ VariadicWithNoReturns = &MoqVariadicWithNoReturns{}
+
+// MoqVariadicWithNoReturns is a mock implementation of VariadicWithNoReturns.
+//
+//	func TestSomethingThatUsesVariadicWithNoReturns(t *testing.T) {
+//
+//		// make and configure a mocked VariadicWithNoReturns
+//		mockedVariadicWithNoReturns := &MoqVariadicWithNoReturns{
+//			FooFunc: func(one string, two ...string)  {
+//				panic("mock out the Foo method")
+//			},
+//		}
+//
+//		// use mockedVariadicWithNoReturns in code that requires VariadicWithNoReturns
+//		// and then make assertions.
+//
+//	}
+type MoqVariadicWithNoReturns struct {
+	// FooFunc mocks the Foo method.
+	FooFunc func(one string, two ...string)
+
+	// calls tracks calls to the methods.
+	calls struct {
+		// Foo holds details about calls to the Foo method.
+		Foo []struct {
+			// One is the one argument value.
+			One string
+			// Two is the two argument value.
+			Two []string
+		}
+	}
+	lockFoo sync.RWMutex
+}
+
+// Foo calls FooFunc.
+func (mock *MoqVariadicWithNoReturns) Foo(one string, two ...string) {
+	callInfo := struct {
+		One string
+		Two []string
+	}{
+		One: one,
+		Two: two,
+	}
+	mock.lockFoo.Lock()
+	mock.calls.Foo = append(mock.calls.Foo, callInfo)
+	mock.lockFoo.Unlock()
+	if mock.FooFunc == nil {
+		return
+	}
+	mock.FooFunc(one, two...)
+}
+
+// FooCalls gets all the calls that were made to Foo.
+// Check the length with:
+//
+//	len(mockedVariadicWithNoReturns.FooCalls())
+func (mock *MoqVariadicWithNoReturns) FooCalls() []struct {
+	One string
+	Two []string
+} {
+	var calls []struct {
+		One string
+		Two []string
+	}
+	mock.lockFoo.RLock()
+	calls = mock.calls.Foo
+	mock.lockFoo.RUnlock()
+	return calls
+}
+
+// ResetFooCalls reset all the calls that were made to Foo.
+func (mock *MoqVariadicWithNoReturns) ResetFooCalls() {
+	mock.lockFoo.Lock()
+	mock.calls.Foo = nil
+	mock.lockFoo.Unlock()
+}
+
+// ResetCalls reset all the calls that were made to all mocked methods.
+func (mock *MoqVariadicWithNoReturns) ResetCalls() {
+	mock.lockFoo.Lock()
+	mock.calls.Foo = nil
+	mock.lockFoo.Unlock()
+}
