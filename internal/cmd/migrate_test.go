@@ -160,8 +160,6 @@ var expectedV3Conf string = `_anchors:
 structname: '{{.InterfaceName}}'
 pkgname: mocks
 template: testify
-template-data:
-  with-expecter: true
 packages:
   github.com/vektra/mockery/v2/pkg:
     interfaces:
@@ -174,9 +172,7 @@ packages:
       all: true
     interfaces:
       Expecter:
-        config:
-          template-data:
-            with-expecter: true
+        config: {}
         configs:
           - structname: ExpecterAndRolledVariadic
             template-data:
@@ -191,9 +187,7 @@ packages:
       RequesterArgSameAsNamedImport: {}
       RequesterReturnElided: {}
       RequesterVariadic:
-        config:
-          template-data:
-            with-expecter: false
+        config: {}
         configs:
           - structname: RequesterVariadicOneArgument
             template-data:
@@ -205,7 +199,6 @@ packages:
         config:
           template-data:
             unroll-variadic: false
-            with-expecter: true
   github.com/vektra/mockery/v2/pkg/fixtures/auto_generated:
     config:
       all: true
