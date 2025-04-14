@@ -53,10 +53,16 @@ $method.ReturnStatement: {{ $method.ReturnStatement }}
 $method.Call: {{ $method.Call }}
 $method.AcceptsContext: {{ $method.AcceptsContext}}
 $method.Signature: {{ $method.Signature }}
+$method.SignatureNoName: {{ $method.SignatureNoName }}
 $method.Declaration: {{ $method.Declaration }}
 $method.ReturnsError: {{ $method.ReturnsError }}
 $method.HasParams: {{ $method.HasParams }}
 $method.HasReturns: {{ $method.HasReturns }}
+$method.ReturnArgList: {{ $method.ReturnArgList }}
+$method.ReturnArgListNoName: {{ $method.ReturnArgListNoName }}
+$method.ArgList: {{ $method.ArgList }}
+$method.ArgListNoName: {{ $method.ArgListNoName }}
+
 {{ range $k, $param := .Params }}
 # PARAM: {{ $k }}
 $param.Var.Name: {{ $param.Var.Name }}
@@ -64,6 +70,9 @@ $param.Var.IsSlice: {{ $param.Var.IsSlice }}
 $param.Var.Nillable: {{ $param.Var.Nillable }}
 $param.Var.Type.String: {{ $param.Var.Type.String }}
 $param.Var.TypeString: {{ $param.Var.TypeString }}
+$param.MethodArg: {{ $param.MethodArg }}
+$param.MethodArgNoName: {{ $param.MethodArgNoName }}
+
 {{ end }}
 {{ range $k, $return := .Returns }}
 # RETURN: {{ $k }}

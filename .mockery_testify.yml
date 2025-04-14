@@ -27,6 +27,11 @@ packages:
                   type-name: RType2
   github.com/vektra/mockery/v3/internal/fixtures:
     interfaces:
+      VariadicWithMultipleReturns:
+        configs:
+          - structname: MockVariadicWithMultipleReturnsUnrollVariadic
+            template-data:
+              unroll-variadic: true
       RequesterVariadic:
         configs:
           - structname: MockRequesterVariadicOneArgument
