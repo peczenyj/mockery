@@ -401,11 +401,8 @@ func migrateConfig(
 		}
 		v3.TemplateData["unroll-variadic"] = *v2Config.UnrollVariadic
 	}
-	if v2Config.WithExpecter != nil {
-		if v3.TemplateData == nil {
-			v3.TemplateData = map[string]any{}
-		}
-		v3.TemplateData["with-expecter"] = *v2Config.WithExpecter
+	if v2Config.WithExpecter != nil && *v2Config.WithExpecter == false {
+		tbl.Append("deprecated-parameter", "`with-expecter` was removed in v3 because it is permanently enabled.")
 	}
 }
 
