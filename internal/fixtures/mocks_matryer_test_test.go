@@ -5156,7 +5156,7 @@ var _ VariadicWithMultipleReturns = &MoqVariadicWithMultipleReturns{}
 //
 //		// make and configure a mocked VariadicWithMultipleReturns
 //		mockedVariadicWithMultipleReturns := &MoqVariadicWithMultipleReturns{
-//			FooFunc: func(one string, bar ...string) (string, error) {
+//			FooFunc: func(one string, two ...string) (string, error) {
 //				panic("mock out the Foo method")
 //			},
 //		}
@@ -5167,7 +5167,7 @@ var _ VariadicWithMultipleReturns = &MoqVariadicWithMultipleReturns{}
 //	}
 type MoqVariadicWithMultipleReturns struct {
 	// FooFunc mocks the Foo method.
-	FooFunc func(one string, bar ...string) (string, error)
+	FooFunc func(one string, two ...string) (string, error)
 
 	// calls tracks calls to the methods.
 	calls struct {
@@ -5175,21 +5175,21 @@ type MoqVariadicWithMultipleReturns struct {
 		Foo []struct {
 			// One is the one argument value.
 			One string
-			// Bar is the bar argument value.
-			Bar []string
+			// Two is the two argument value.
+			Two []string
 		}
 	}
 	lockFoo sync.RWMutex
 }
 
 // Foo calls FooFunc.
-func (mock *MoqVariadicWithMultipleReturns) Foo(one string, bar ...string) (string, error) {
+func (mock *MoqVariadicWithMultipleReturns) Foo(one string, two ...string) (string, error) {
 	callInfo := struct {
 		One string
-		Bar []string
+		Two []string
 	}{
 		One: one,
-		Bar: bar,
+		Two: two,
 	}
 	mock.lockFoo.Lock()
 	mock.calls.Foo = append(mock.calls.Foo, callInfo)
@@ -5201,7 +5201,7 @@ func (mock *MoqVariadicWithMultipleReturns) Foo(one string, bar ...string) (stri
 		)
 		return result, err
 	}
-	return mock.FooFunc(one, bar...)
+	return mock.FooFunc(one, two...)
 }
 
 // FooCalls gets all the calls that were made to Foo.
@@ -5210,11 +5210,11 @@ func (mock *MoqVariadicWithMultipleReturns) Foo(one string, bar ...string) (stri
 //	len(mockedVariadicWithMultipleReturns.FooCalls())
 func (mock *MoqVariadicWithMultipleReturns) FooCalls() []struct {
 	One string
-	Bar []string
+	Two []string
 } {
 	var calls []struct {
 		One string
-		Bar []string
+		Two []string
 	}
 	mock.lockFoo.RLock()
 	calls = mock.calls.Foo

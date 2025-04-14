@@ -26,6 +26,14 @@ func (p Param) MethodArg() string {
 	return fmt.Sprintf("%s %s", p.Name(), p.TypeString())
 }
 
+// MethodArgNoName is the same as MethodArg except the argument name is not included.
+func (p Param) MethodArgNoName() string {
+	if p.Variadic {
+		return fmt.Sprintf("...%s", p.TypeString()[2:])
+	}
+	return p.TypeString()
+}
+
 // CallName returns the string representation of the parameter to be
 // used for a method call. For a variadic paramter, it will be of the
 // format 'foos...' if ellipsis is true.

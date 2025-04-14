@@ -5259,11 +5259,11 @@ func (_m *MockVariadicWithMultipleReturnsUnrollVariadic) EXPECT() *MockVariadicW
 }
 
 // Foo provides a mock function for the type MockVariadicWithMultipleReturnsUnrollVariadic
-func (_mock *MockVariadicWithMultipleReturnsUnrollVariadic) Foo(one string, bar ...string) (string, error) {
+func (_mock *MockVariadicWithMultipleReturnsUnrollVariadic) Foo(one string, two ...string) (string, error) {
 	// string
-	_va := make([]interface{}, len(bar))
-	for _i := range bar {
-		_va[_i] = bar[_i]
+	_va := make([]interface{}, len(two))
+	for _i := range two {
+		_va[_i] = two[_i]
 	}
 	var _ca []interface{}
 	_ca = append(_ca, one)
@@ -5277,15 +5277,15 @@ func (_mock *MockVariadicWithMultipleReturnsUnrollVariadic) Foo(one string, bar 
 	var r0 string
 	var r1 error
 	if returnFunc, ok := ret.Get(0).(func(string, ...string) (string, error)); ok {
-		return returnFunc(one, bar...)
+		return returnFunc(one, two...)
 	}
 	if returnFunc, ok := ret.Get(0).(func(string, ...string) string); ok {
-		r0 = returnFunc(one, bar...)
+		r0 = returnFunc(one, two...)
 	} else {
 		r0 = ret.Get(0).(string)
 	}
 	if returnFunc, ok := ret.Get(1).(func(string, ...string) error); ok {
-		r1 = returnFunc(one, bar...)
+		r1 = returnFunc(one, two...)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -5299,13 +5299,13 @@ type MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call struct {
 
 // Foo is a helper method to define mock.On call
 //   - one
-//   - bar
-func (_e *MockVariadicWithMultipleReturnsUnrollVariadic_Expecter) Foo(one interface{}, bar ...interface{}) *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call {
+//   - two
+func (_e *MockVariadicWithMultipleReturnsUnrollVariadic_Expecter) Foo(one interface{}, two ...interface{}) *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call {
 	return &MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call{Call: _e.mock.On("Foo",
-		append([]interface{}{one}, bar...)...)}
+		append([]interface{}{one}, two...)...)}
 }
 
-func (_c *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call) Run(run func(one string, bar ...string)) *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call {
+func (_c *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call) Run(run func(one string, two ...string)) *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		variadicArgs := make([]string, len(args)-1)
 		for i, a := range args[1:] {
@@ -5323,7 +5323,7 @@ func (_c *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call) Return(result 
 	return _c
 }
 
-func (_c *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call) RunAndReturn(run func(one string, bar ...string) (string, error)) *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call {
+func (_c *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call) RunAndReturn(run func(one string, two ...string) (string, error)) *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call {
 	_c.Call.Return(run)
 	return _c
 }
