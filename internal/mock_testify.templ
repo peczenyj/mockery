@@ -110,7 +110,7 @@ func (_mock *{{$mock.StructName}}{{ $mock.TypeInstantiation }}) {{$method.Name}}
 	{{- $calledString = "_mock.Called(_ca...)" }}
 {{- end }} {{/* END PREAMBLE */}}
 	{{- if eq (len $method.Returns) 0 }}
-	{{- $calledString }}
+	{{ $calledString }}
 	{{- else }}
 	{{- $retArgs := $method.Scope.AllocateName "ret" }}
 	{{ $retArgs }} := {{ $calledString }}
