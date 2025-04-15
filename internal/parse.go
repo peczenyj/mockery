@@ -72,6 +72,10 @@ func (p *Parser) ParsePackages(ctx context.Context, packageNames []string) ([]*I
 				ifaceLog := fileLog.With().Str("interface", declaredInterface.typeSpec.Name.Name).Logger()
 
 				obj := scope.Lookup(declaredInterface.typeSpec.Name.Name)
+				if obj == nil {
+					log.Debug().Str("identifier-name", declaredInterface.typeSpec.Name.Name).Msg("obj was nil")
+					continue
+				}
 
 				typ, ok := obj.Type().(*types.Named)
 				if !ok {
