@@ -71,3 +71,11 @@ packages:
       all: True
       dir: internal/fixtures/
       pkgname: test
+  net/http:
+    config:
+      all: false
+      dir: internal/fixtures/
+      pkgname: test
+    interfaces:
+      Handler:
+      ResponseWriter:
