@@ -36,6 +36,9 @@ packages:
           - structname: MockVariadicWithMultipleReturnsUnrollVariadic
             template-data:
               unroll-variadic: true
+          - structname: MockVariadicWithMultipleReturns
+            template-data:
+              unroll-variadic: false
       RequesterVariadic:
         configs:
           - structname: MockRequesterVariadicOneArgument

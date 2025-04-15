@@ -125,7 +125,7 @@ func (_mock *{{$mock.StructName}}{{ $mock.TypeInstantiation }}) {{$method.Name}}
 
 		{{- if gt (len $method.Returns) 1 }}
 	if returnFunc, ok := {{ $retArgs }}.Get(0).(func{{ $method.SignatureNoName }}); ok {
-		return returnFunc({{- if (index $mock.TemplateData "unroll-variadic") }}{{ $method.ArgCallList }}{{- else }}{{ $method.ArgCallListNoEllipsis }}{{- end }})
+		return returnFunc({{ $method.ArgCallList }})
 	}
 		{{- end }}
 
