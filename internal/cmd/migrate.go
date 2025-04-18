@@ -267,6 +267,10 @@ func checkDeprecatedTemplateVariables(
 				name:    "InterfaceNameLower",
 				message: "InterfaceNameLower template variable has been deleted. Use \"{{ .InterfaceName | lower }}\" instead",
 			},
+			{
+				name:    "PackageName",
+				message: "PackageName template variable has been deleted. Use \"{{ .SrcPackageName }}\" instead",
+			},
 		} {
 			if strings.Contains(fieldAsString, deprecatedVariable.name) {
 				tbl.Append("template-variable", deprecatedVariable.message)
