@@ -48,6 +48,7 @@ func TestUnrollVariadicRun(t *testing.T) {
 			ran = true
 		},
 	).Return("", nil)
+	//nolint: errcheck
 	m.Foo("", "")
 	assert.True(t, ran)
 }
@@ -61,6 +62,7 @@ func TestNoUnrollVariadicRun(t *testing.T) {
 			ran = true
 		},
 	).Return("", nil)
+	//nolint: errcheck
 	m.Foo("", "")
 	assert.True(t, ran)
 }
