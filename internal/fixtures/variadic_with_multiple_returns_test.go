@@ -38,3 +38,29 @@ func TestUnrollVariadic(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, "onetwothree", ret)
 }
+
+func TestUnrollVariadicRun(t *testing.T) {
+	var ran bool
+
+	m := NewMockVariadicWithMultipleReturnsUnrollVariadic(t)
+	m.EXPECT().Foo(mock.Anything, mock.Anything, mock.Anything).Run(
+		func(one string, two ...string) {
+			ran = true
+		},
+	).Return("", nil)
+	m.Foo("", "")
+	assert.True(t, ran)
+}
+
+func TestNoUnrollVariadicRun(t *testing.T) {
+	var ran bool
+
+	m := NewMockVariadicWithMultipleReturns(t)
+	m.EXPECT().Foo(mock.Anything, mock.Anything).Run(
+		func(one string, two ...string) {
+			ran = true
+		},
+	).Return("", nil)
+	m.Foo("", "")
+	assert.True(t, ran)
+}
