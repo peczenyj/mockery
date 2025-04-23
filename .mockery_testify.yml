@@ -62,6 +62,12 @@ packages:
   github.com/vektra/mockery/v3/internal/fixtures/recursive_generation:
     config:
       recursive: True
+  github.com/vektra/mockery/v3/internal/fixtures/recursive_generation_with_subpkg_exclude:
+    config:
+      recursive: True
+      filename: mocks.go
+      exclude-subpkg-regex:
+      - subpkg2
   github.com/vektra/mockery/v3/internal/fixtures/empty_return:
   github.com/vektra/mockery/v3/internal/fixtures/method_args/same_name_arg_and_type:
   github.com/vektra/mockery/v3/internal/fixtures/iface_typed_param:
