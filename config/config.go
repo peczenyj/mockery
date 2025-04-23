@@ -317,7 +317,11 @@ func (c *RootConfig) Initialize(ctx context.Context) error {
 		}
 		parentPkgConfig := c.Packages[recursivePackageName]
 		for _, subpkg := range subpkgs {
-			if c.ShouldExcludeSubpkg(subpkg) {
+			recursivePkgConfig, err := c.GetPackageConfig(ctx, recursivePackageName)
+			if err != nil {
+				return fmt.Errorf("getting package config: %w", err)
+			}
+			if recursivePkgConfig.Config.ShouldExcludeSubpkg(subpkg) {
 				pkgLog.Debug().Msg("package was marked for exclusion")
 				continue
 			}
