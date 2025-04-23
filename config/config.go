@@ -152,12 +152,18 @@ func NewRootConfig(
 	}
 	rootConfig.configFile = configFile
 
+	koanfTags := conf.koanfTagNames()
 	if err := k.Load(
 		env.ProviderWithValue(
 			"MOCKERY_",
 			".",
 			func(key, value string) (string, any) {
 				normalizedKey := strings.Replace(strings.ToLower(strings.TrimPrefix(key, "MOCKERY_")), "_", "-", -1)
+				if _, exists := koanfTags[normalizedKey]; !exists {
+					log.Debug().Str("env-var", key).Msg("environment variable unknown, not including in config map.")
+					return "", nil
+				}
+
 				// Loading from environment variables is kind of weird. Koanf doesn't seem to
 				// have a good way to automatically convert values destined for boolean fields
 				// without resorting to reflection. We do something gross here by
@@ -525,6 +531,20 @@ type Config struct {
 	TemplateData                map[string]any `koanf:"template-data" yaml:"template-data,omitempty"`
 	// TemplateSchema is the URL of the template's JSON schema.
 	TemplateSchema *string `koanf:"template-schema" yaml:"template-schema,omitempty"`
+}
+
+func (c Config) koanfTagNames() map[string]struct{} {
+	tags := map[string]struct{}{}
+	t := reflect.TypeOf(c)
+
+	for i := 0; i < t.NumField(); i++ {
+		field := t.Field(i)
+		tag := field.Tag.Get("koanf")
+		if tag != "" && tag != "-" {
+			tags[tag] = struct{}{}
+		}
+	}
+	return tags
 }
 
 func (c *Config) FilePath() *pathlib.Path {

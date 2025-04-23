@@ -54,3 +54,19 @@ packages:
 		})
 	}
 }
+
+func TestNewRootConfigUnknownEnvVar(t *testing.T) {
+	t.Setenv("MOCKERY_UNKNOWN", "foo")
+	configFile := pathlib.NewPath(t.TempDir()).Join("config.yaml")
+	require.NoError(t, configFile.WriteFile([]byte(`
+packages:
+  github.com/vektra/mockery/v3:
+`)))
+
+	flags := pflag.NewFlagSet("test", pflag.ExitOnError)
+	flags.String("config", "", "")
+
+	require.NoError(t, flags.Parse([]string{"--config", configFile.String()}))
+	_, _, err := NewRootConfig(context.Background(), flags)
+	assert.NoError(t, err)
+}
