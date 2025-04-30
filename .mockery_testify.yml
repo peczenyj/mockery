@@ -5,7 +5,7 @@ all: True
 dir: "{{.InterfaceDirRelative}}"
 structname: "{{.Mock}}{{.InterfaceName}}"
 pkgname: "{{.SrcPackageName}}"
-filename: "mocks_test.go"
+filename: "mocks_testify_{{.SrcPackageName}}_test.go"
 template-data:
   boilerplate-file: "./.boilerplate.txt"
 packages:
