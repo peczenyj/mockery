@@ -1,9 +1,5 @@
 package template
 
-import (
-	"github.com/vektra/mockery/v3/template_funcs"
-)
-
 // Interface is the data used to generate a mock for some interface.
 type Interface struct {
 	Comments Comments
@@ -43,7 +39,7 @@ func (m Interface) TypeConstraintTest() string {
 		if idx != 0 {
 			s += ", "
 		}
-		s += template_funcs.Exported(param.Name())
+		s += param.Name()
 		s += " "
 		s += param.TypeString()
 	}
@@ -60,7 +56,7 @@ func (m Interface) TypeConstraint() string {
 		if idx != 0 {
 			s += ", "
 		}
-		s += template_funcs.Exported(param.Name())
+		s += param.Name()
 		s += " "
 		s += param.TypeString()
 	}
@@ -77,7 +73,7 @@ func (m Interface) TypeInstantiation() string {
 		if idx != 0 {
 			s += ", "
 		}
-		s += template_funcs.Exported(param.Name())
+		s += param.Name()
 	}
 	s += "]"
 	return s

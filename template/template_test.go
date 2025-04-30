@@ -97,7 +97,7 @@ func TestTemplateMockFuncs(t *testing.T) {
 					}},
 				}}}
 			},
-			want: "[T []<nil>]",
+			want: "[t []<nil>]",
 		},
 		{
 			name:       "readFile",
