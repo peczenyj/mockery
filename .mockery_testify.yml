@@ -74,16 +74,19 @@ packages:
   github.com/vektra/mockery/v3/internal/fixtures/example_project:
   github.com/vektra/mockery/v3/internal/fixtures/index_list_expr:
   github.com/vektra/mockery/v3/internal/fixtures/iface_new_type:
+  github.com/vektra/mockery/v3/internal/fixtures/auto_generated_skip:
   github.com/vektra/mockery/v3/internal/fixtures/type_alias:
   io:
     config:
       all: True
       dir: internal/fixtures/
       pkgname: test
+      filename: mocks_io_test.go
   net/http:
     config:
       all: false
       dir: internal/fixtures/
       pkgname: test
+      filename: mocks_net_http_test.go
     interfaces:
       ResponseWriter:

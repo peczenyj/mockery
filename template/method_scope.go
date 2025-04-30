@@ -27,7 +27,6 @@ type MethodScope struct {
 	// scope. This includes import qualifiers, type names etc. This is used to prevent naming
 	// collisions.
 	visibleNames map[string]any
-	imports      map[string]*Package
 }
 
 func NewMethodScope(r *Registry) *MethodScope {
@@ -36,7 +35,6 @@ func NewMethodScope(r *Registry) *MethodScope {
 		vars:         []*Var{},
 		conflicted:   map[string]bool{},
 		visibleNames: map[string]any{},
-		imports:      map[string]*Package{},
 	}
 	for key := range r.importQualifiers {
 		m.AddName(key)
@@ -214,7 +212,6 @@ func (m *MethodScope) NameExists(name string) bool {
 func (m *MethodScope) addImport(ctx context.Context, pkg TypesPackage, imports map[string]*Package) {
 	imprt := m.registry.addImport(ctx, pkg)
 	imports[pkg.Path()] = imprt
-	m.imports[pkg.Path()] = imprt
 	m.AddName(imprt.Qualifier())
 }
 
@@ -226,7 +223,9 @@ func (m *MethodScope) populateImportNamedType(
 	},
 	imports map[string]*Package,
 ) {
+	log := zerolog.Ctx(ctx)
 	if pkg := t.Obj().Pkg(); pkg != nil {
+		log.Debug().Str("method", "populateImportNamedType").Str("pkg-path", pkg.Path()).Msg("adding import from var")
 		m.addImport(ctx, pkg, imports)
 	}
 	// The imports of a Type with a TypeList must be added to the imports list
