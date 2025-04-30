@@ -14,7 +14,6 @@ package {{.PkgName}}
 {{- if .Interfaces.ImplementsSomeMethod }}
     {{- $_ := .Registry.AddImport "sync" "sync" }}
 {{- end }}
-{{- $_ := .Registry.AddImport "fmt" "fmt" }}
 
 import (
 {{- range .Imports}}

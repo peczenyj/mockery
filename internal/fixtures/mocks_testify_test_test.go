@@ -15,7 +15,7 @@ import (
 	http1 "github.com/vektra/mockery/v3/internal/fixtures/12345678/http"
 	"github.com/vektra/mockery/v3/internal/fixtures/constraints"
 	http0 "github.com/vektra/mockery/v3/internal/fixtures/http"
-	test "github.com/vektra/mockery/v3/internal/fixtures/redefined_type_b"
+	"github.com/vektra/mockery/v3/internal/fixtures/redefined_type_b"
 )
 
 // NewMockUsesAny creates a new instance of MockUsesAny. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
