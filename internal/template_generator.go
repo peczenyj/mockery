@@ -496,11 +496,12 @@ func (g *TemplateGenerator) Generate(
 }
 
 func goimports(src []byte) ([]byte, error) {
-	formatted, err := imports.Process("filename", src, &imports.Options{
-		TabWidth:  8,
-		TabIndent: true,
-		Comments:  true,
-		Fragment:  true,
+	formatted, err := imports.Process("/", src, &imports.Options{
+		TabWidth:   8,
+		TabIndent:  true,
+		Comments:   true,
+		Fragment:   true,
+		FormatOnly: true,
 	})
 	if err != nil {
 		return nil, fmt.Errorf("goimports: %s", err)
