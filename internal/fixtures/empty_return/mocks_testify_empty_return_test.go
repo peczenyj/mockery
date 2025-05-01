@@ -81,8 +81,8 @@ type MockEmptyReturn_WithArgs_Call struct {
 }
 
 // WithArgs is a helper method to define mock.On call
-//   - a
-//   - b
+//   - a int
+//   - b string
 func (_e *MockEmptyReturn_Expecter) WithArgs(a interface{}, b interface{}) *MockEmptyReturn_WithArgs_Call {
 	return &MockEmptyReturn_WithArgs_Call{Call: _e.mock.On("WithArgs", a, b)}
 }

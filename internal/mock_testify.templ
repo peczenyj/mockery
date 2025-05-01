@@ -160,7 +160,7 @@ type {{ $ExpecterCallNameConstraint }} struct {
 
 // {{ $method.Name }} is a helper method to define mock.On call
 {{- range $method.Params }}
-//  - {{.Var.Name}}
+//  - {{.Var.Name}} {{.TypeStringEllipsis}}
 {{- end}}
 func (_e *{{ $expecterNameInstantiated }}) {{ $method.Name }}({{ range $method.Params }}{{ .Var.Name }} {{ if .Variadic }}...{{end}}interface{}, {{ end }}) *{{ $ExpecterCallNameInstantiated }} {
 	return &{{ $ExpecterCallNameInstantiated }}{Call: _e.mock.On("{{$method.Name}}",
