@@ -50,7 +50,7 @@ type MockRType_Replace1_Call struct {
 }
 
 // Replace1 is a helper method to define mock.On call
-//   - f
+//   - f rt1.RType1
 func (_e *MockRType_Expecter) Replace1(f interface{}) *MockRType_Replace1_Call {
 	return &MockRType_Replace1_Call{Call: _e.mock.On("Replace1", f)}
 }
@@ -84,7 +84,7 @@ type MockRType_Replace2_Call struct {
 }
 
 // Replace2 is a helper method to define mock.On call
-//   - f
+//   - f rt2.RType2
 func (_e *MockRType_Expecter) Replace2(f interface{}) *MockRType_Replace2_Call {
 	return &MockRType_Replace2_Call{Call: _e.mock.On("Replace2", f)}
 }
@@ -145,7 +145,7 @@ type RTypeReplaced1_Replace1_Call struct {
 }
 
 // Replace1 is a helper method to define mock.On call
-//   - f
+//   - f rt2.RType2
 func (_e *RTypeReplaced1_Expecter) Replace1(f interface{}) *RTypeReplaced1_Replace1_Call {
 	return &RTypeReplaced1_Replace1_Call{Call: _e.mock.On("Replace1", f)}
 }
@@ -179,7 +179,7 @@ type RTypeReplaced1_Replace2_Call struct {
 }
 
 // Replace2 is a helper method to define mock.On call
-//   - f
+//   - f rt2.RType2
 func (_e *RTypeReplaced1_Expecter) Replace2(f interface{}) *RTypeReplaced1_Replace2_Call {
 	return &RTypeReplaced1_Replace2_Call{Call: _e.mock.On("Replace2", f)}
 }

@@ -130,7 +130,7 @@ type MockFooer_Bar_Call struct {
 }
 
 // Bar is a helper method to define mock.On call
-//   - f
+//   - f func([]int)
 func (_e *MockFooer_Expecter) Bar(f interface{}) *MockFooer_Bar_Call {
 	return &MockFooer_Bar_Call{Call: _e.mock.On("Bar", f)}
 }
@@ -177,7 +177,7 @@ type MockFooer_Baz_Call struct {
 }
 
 // Baz is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockFooer_Expecter) Baz(path interface{}) *MockFooer_Baz_Call {
 	return &MockFooer_Baz_Call{Call: _e.mock.On("Baz", path)}
 }
@@ -222,7 +222,7 @@ type MockFooer_Foo_Call struct {
 }
 
 // Foo is a helper method to define mock.On call
-//   - f
+//   - f func(x string) string
 func (_e *MockFooer_Expecter) Foo(f interface{}) *MockFooer_Foo_Call {
 	return &MockFooer_Foo_Call{Call: _e.mock.On("Foo", f)}
 }
@@ -294,7 +294,7 @@ type MockMapFunc_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - m
+//   - m map[string]func(string) string
 func (_e *MockMapFunc_Expecter) Get(m interface{}) *MockMapFunc_Get_Call {
 	return &MockMapFunc_Get_Call{Call: _e.mock.On("Get", m)}
 }
@@ -542,7 +542,7 @@ type MockConsulLock_Lock_Call struct {
 }
 
 // Lock is a helper method to define mock.On call
-//   - valCh
+//   - valCh <-chan struct{}
 func (_e *MockConsulLock_Expecter) Lock(valCh interface{}) *MockConsulLock_Lock_Call {
 	return &MockConsulLock_Lock_Call{Call: _e.mock.On("Lock", valCh)}
 }
@@ -671,8 +671,8 @@ type MockKeyManager_GetKey_Call struct {
 }
 
 // GetKey is a helper method to define mock.On call
-//   - s
-//   - v
+//   - s string
+//   - v uint16
 func (_e *MockKeyManager_Expecter) GetKey(s interface{}, v interface{}) *MockKeyManager_GetKey_Call {
 	return &MockKeyManager_GetKey_Call{Call: _e.mock.On("GetKey", s, v)}
 }
@@ -744,7 +744,7 @@ type MockBlank_Create_Call struct {
 }
 
 // Create is a helper method to define mock.On call
-//   - x
+//   - x interface{}
 func (_e *MockBlank_Expecter) Create(x interface{}) *MockBlank_Create_Call {
 	return &MockBlank_Create_Call{Call: _e.mock.On("Create", x)}
 }
@@ -827,8 +827,8 @@ type MockExpecterAndRolledVariadic_ManyArgsReturns_Call struct {
 }
 
 // ManyArgsReturns is a helper method to define mock.On call
-//   - str
-//   - i
+//   - str string
+//   - i int
 func (_e *MockExpecterAndRolledVariadic_Expecter) ManyArgsReturns(str interface{}, i interface{}) *MockExpecterAndRolledVariadic_ManyArgsReturns_Call {
 	return &MockExpecterAndRolledVariadic_ManyArgsReturns_Call{Call: _e.mock.On("ManyArgsReturns", str, i)}
 }
@@ -906,7 +906,7 @@ type MockExpecterAndRolledVariadic_NoReturn_Call struct {
 }
 
 // NoReturn is a helper method to define mock.On call
-//   - str
+//   - str string
 func (_e *MockExpecterAndRolledVariadic_Expecter) NoReturn(str interface{}) *MockExpecterAndRolledVariadic_NoReturn_Call {
 	return &MockExpecterAndRolledVariadic_NoReturn_Call{Call: _e.mock.On("NoReturn", str)}
 }
@@ -957,7 +957,7 @@ type MockExpecterAndRolledVariadic_Variadic_Call struct {
 }
 
 // Variadic is a helper method to define mock.On call
-//   - ints
+//   - ints ...int
 func (_e *MockExpecterAndRolledVariadic_Expecter) Variadic(ints ...interface{}) *MockExpecterAndRolledVariadic_Variadic_Call {
 	return &MockExpecterAndRolledVariadic_Variadic_Call{Call: _e.mock.On("Variadic",
 		append([]interface{}{}, ints...)...)}
@@ -1010,9 +1010,9 @@ type MockExpecterAndRolledVariadic_VariadicMany_Call struct {
 }
 
 // VariadicMany is a helper method to define mock.On call
-//   - i
-//   - a
-//   - intfs
+//   - i int
+//   - a string
+//   - intfs ...interface{}
 func (_e *MockExpecterAndRolledVariadic_Expecter) VariadicMany(i interface{}, a interface{}, intfs ...interface{}) *MockExpecterAndRolledVariadic_VariadicMany_Call {
 	return &MockExpecterAndRolledVariadic_VariadicMany_Call{Call: _e.mock.On("VariadicMany",
 		append([]interface{}{i, a}, intfs...)...)}
@@ -1097,8 +1097,8 @@ type MockExpecter_ManyArgsReturns_Call struct {
 }
 
 // ManyArgsReturns is a helper method to define mock.On call
-//   - str
-//   - i
+//   - str string
+//   - i int
 func (_e *MockExpecter_Expecter) ManyArgsReturns(str interface{}, i interface{}) *MockExpecter_ManyArgsReturns_Call {
 	return &MockExpecter_ManyArgsReturns_Call{Call: _e.mock.On("ManyArgsReturns", str, i)}
 }
@@ -1176,7 +1176,7 @@ type MockExpecter_NoReturn_Call struct {
 }
 
 // NoReturn is a helper method to define mock.On call
-//   - str
+//   - str string
 func (_e *MockExpecter_Expecter) NoReturn(str interface{}) *MockExpecter_NoReturn_Call {
 	return &MockExpecter_NoReturn_Call{Call: _e.mock.On("NoReturn", str)}
 }
@@ -1228,7 +1228,7 @@ type MockExpecter_Variadic_Call struct {
 }
 
 // Variadic is a helper method to define mock.On call
-//   - ints
+//   - ints ...int
 func (_e *MockExpecter_Expecter) Variadic(ints ...interface{}) *MockExpecter_Variadic_Call {
 	return &MockExpecter_Variadic_Call{Call: _e.mock.On("Variadic",
 		append([]interface{}{}, ints...)...)}
@@ -1283,9 +1283,9 @@ type MockExpecter_VariadicMany_Call struct {
 }
 
 // VariadicMany is a helper method to define mock.On call
-//   - i
-//   - a
-//   - intfs
+//   - i int
+//   - a string
+//   - intfs ...interface{}
 func (_e *MockExpecter_Expecter) VariadicMany(i interface{}, a interface{}, intfs ...interface{}) *MockExpecter_VariadicMany_Call {
 	return &MockExpecter_VariadicMany_Call{Call: _e.mock.On("VariadicMany",
 		append([]interface{}{i, a}, intfs...)...)}
@@ -1358,8 +1358,8 @@ type MockVariadicNoReturnInterface_VariadicNoReturn_Call struct {
 }
 
 // VariadicNoReturn is a helper method to define mock.On call
-//   - j
-//   - is
+//   - j int
+//   - is ...interface{}
 func (_e *MockVariadicNoReturnInterface_Expecter) VariadicNoReturn(j interface{}, is ...interface{}) *MockVariadicNoReturnInterface_VariadicNoReturn_Call {
 	return &MockVariadicNoReturnInterface_VariadicNoReturn_Call{Call: _e.mock.On("VariadicNoReturn",
 		append([]interface{}{j}, is...)...)}
@@ -1433,7 +1433,7 @@ type MockFuncArgsCollision_Foo_Call struct {
 }
 
 // Foo is a helper method to define mock.On call
-//   - ret
+//   - ret interface{}
 func (_e *MockFuncArgsCollision_Expecter) Foo(ret interface{}) *MockFuncArgsCollision_Foo_Call {
 	return &MockFuncArgsCollision_Foo_Call{Call: _e.mock.On("Foo", ret)}
 }
@@ -1525,7 +1525,7 @@ type MockRequesterGenerics_GenericAnonymousStructs_Call[TAny any, TComparable co
 }
 
 // GenericAnonymousStructs is a helper method to define mock.On call
-//   - val
+//   - val struct{Type1 TExternalIntf}
 func (_e *MockRequesterGenerics_Expecter[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric]) GenericAnonymousStructs(val interface{}) *MockRequesterGenerics_GenericAnonymousStructs_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric] {
 	return &MockRequesterGenerics_GenericAnonymousStructs_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric]{Call: _e.mock.On("GenericAnonymousStructs", val)}
 }
@@ -1590,8 +1590,8 @@ type MockRequesterGenerics_GenericArguments_Call[TAny any, TComparable comparabl
 }
 
 // GenericArguments is a helper method to define mock.On call
-//   - v
-//   - v1
+//   - v TAny
+//   - v1 TComparable
 func (_e *MockRequesterGenerics_Expecter[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric]) GenericArguments(v interface{}, v1 interface{}) *MockRequesterGenerics_GenericArguments_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric] {
 	return &MockRequesterGenerics_GenericArguments_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric]{Call: _e.mock.On("GenericArguments", v, v1)}
 }
@@ -1639,7 +1639,7 @@ type MockRequesterGenerics_GenericStructs_Call[TAny any, TComparable comparable,
 }
 
 // GenericStructs is a helper method to define mock.On call
-//   - genericType
+//   - genericType GenericType[TAny, TIntf]
 func (_e *MockRequesterGenerics_Expecter[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric]) GenericStructs(genericType interface{}) *MockRequesterGenerics_GenericStructs_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric] {
 	return &MockRequesterGenerics_GenericStructs_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric]{Call: _e.mock.On("GenericStructs", genericType)}
 }
@@ -1930,7 +1930,7 @@ type MockReplaceGeneric_A_Call[TImport any, TConstraint constraints.Signed, TKee
 }
 
 // A is a helper method to define mock.On call
-//   - t1
+//   - t1 TImport
 func (_e *MockReplaceGeneric_Expecter[TImport, TConstraint, TKeep]) A(t1 interface{}) *MockReplaceGeneric_A_Call[TImport, TConstraint, TKeep] {
 	return &MockReplaceGeneric_A_Call[TImport, TConstraint, TKeep]{Call: _e.mock.On("A", t1)}
 }
@@ -2176,7 +2176,7 @@ type MockHasConflictingNestedImports_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockHasConflictingNestedImports_Expecter) Get(path interface{}) *MockHasConflictingNestedImports_Get_Call {
 	return &MockHasConflictingNestedImports_Get_Call{Call: _e.mock.On("Get", path)}
 }
@@ -2371,7 +2371,7 @@ type MockImportsSameAsPackage_C_Call struct {
 }
 
 // C is a helper method to define mock.On call
-//   - c
+//   - c C
 func (_e *MockImportsSameAsPackage_Expecter) C(c interface{}) *MockImportsSameAsPackage_C_Call {
 	return &MockImportsSameAsPackage_C_Call{Call: _e.mock.On("C", c)}
 }
@@ -2443,7 +2443,7 @@ type MockGenericInterface_Func_Call[M any] struct {
 }
 
 // Func is a helper method to define mock.On call
-//   - arg
+//   - arg *M
 func (_e *MockGenericInterface_Expecter[M]) Func(arg interface{}) *MockGenericInterface_Func_Call[M] {
 	return &MockGenericInterface_Func_Call[M]{Call: _e.mock.On("Func", arg)}
 }
@@ -2515,7 +2515,7 @@ type MockInstantiatedGenericInterface_Func_Call struct {
 }
 
 // Func is a helper method to define mock.On call
-//   - arg
+//   - arg *float32
 func (_e *MockInstantiatedGenericInterface_Expecter) Func(arg interface{}) *MockInstantiatedGenericInterface_Func_Call {
 	return &MockInstantiatedGenericInterface_Func_Call{Call: _e.mock.On("Func", arg)}
 }
@@ -2596,7 +2596,7 @@ type MockMyReader_Read_Call struct {
 }
 
 // Read is a helper method to define mock.On call
-//   - p
+//   - p []byte
 func (_e *MockMyReader_Expecter) Read(p interface{}) *MockMyReader_Read_Call {
 	return &MockMyReader_Read_Call{Call: _e.mock.On("Read", p)}
 }
@@ -2679,7 +2679,7 @@ type MockIssue766_FetchData_Call struct {
 }
 
 // FetchData is a helper method to define mock.On call
-//   - fetchFunc
+//   - fetchFunc func(x ...int) ([]int, error)
 func (_e *MockIssue766_Expecter) FetchData(fetchFunc interface{}) *MockIssue766_FetchData_Call {
 	return &MockIssue766_FetchData_Call{Call: _e.mock.On("FetchData", fetchFunc)}
 }
@@ -2745,7 +2745,7 @@ type MockMapToInterface_Foo_Call struct {
 }
 
 // Foo is a helper method to define mock.On call
-//   - arg1
+//   - arg1 ...map[string]interface{}
 func (_e *MockMapToInterface_Expecter) Foo(arg1 ...interface{}) *MockMapToInterface_Foo_Call {
 	return &MockMapToInterface_Foo_Call{Call: _e.mock.On("Foo",
 		append([]interface{}{}, arg1...)...)}
@@ -2868,7 +2868,7 @@ type MockUsesOtherPkgIface_DoSomethingElse_Call struct {
 }
 
 // DoSomethingElse is a helper method to define mock.On call
-//   - obj
+//   - obj Sibling
 func (_e *MockUsesOtherPkgIface_Expecter) DoSomethingElse(obj interface{}) *MockUsesOtherPkgIface_DoSomethingElse_Call {
 	return &MockUsesOtherPkgIface_DoSomethingElse_Call{Call: _e.mock.On("DoSomethingElse", obj)}
 }
@@ -3020,7 +3020,7 @@ type MockRequester_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockRequester_Expecter) Get(path interface{}) *MockRequester_Get_Call {
 	return &MockRequester_Get_Call{Call: _e.mock.On("Get", path)}
 }
@@ -3092,7 +3092,7 @@ type MockRequester2_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockRequester2_Expecter) Get(path interface{}) *MockRequester2_Get_Call {
 	return &MockRequester2_Get_Call{Call: _e.mock.On("Get", path)}
 }
@@ -3297,7 +3297,7 @@ type MockRequesterArgSameAsImport_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - json1
+//   - json1 string
 func (_e *MockRequesterArgSameAsImport_Expecter) Get(json1 interface{}) *MockRequesterArgSameAsImport_Get_Call {
 	return &MockRequesterArgSameAsImport_Get_Call{Call: _e.mock.On("Get", json1)}
 }
@@ -3371,7 +3371,7 @@ type MockRequesterArgSameAsNamedImport_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - json1
+//   - json1 string
 func (_e *MockRequesterArgSameAsNamedImport_Expecter) Get(json1 interface{}) *MockRequesterArgSameAsNamedImport_Get_Call {
 	return &MockRequesterArgSameAsNamedImport_Get_Call{Call: _e.mock.On("Get", json1)}
 }
@@ -3432,7 +3432,7 @@ type MockRequesterArgSameAsPkg_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - test1
+//   - test1 string
 func (_e *MockRequesterArgSameAsPkg_Expecter) Get(test1 interface{}) *MockRequesterArgSameAsPkg_Get_Call {
 	return &MockRequesterArgSameAsPkg_Get_Call{Call: _e.mock.On("Get", test1)}
 }
@@ -3515,7 +3515,7 @@ type MockRequesterArray_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockRequesterArray_Expecter) Get(path interface{}) *MockRequesterArray_Get_Call {
 	return &MockRequesterArray_Get_Call{Call: _e.mock.On("Get", path)}
 }
@@ -3587,8 +3587,8 @@ type MockRequesterElided_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - path
-//   - url
+//   - path string
+//   - url string
 func (_e *MockRequesterElided_Expecter) Get(path interface{}, url interface{}) *MockRequesterElided_Get_Call {
 	return &MockRequesterElided_Get_Call{Call: _e.mock.On("Get", path, url)}
 }
@@ -3742,7 +3742,7 @@ type MockRequesterNS_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockRequesterNS_Expecter) Get(path interface{}) *MockRequesterNS_Get_Call {
 	return &MockRequesterNS_Get_Call{Call: _e.mock.On("Get", path)}
 }
@@ -3825,7 +3825,7 @@ type MockRequesterPtr_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockRequesterPtr_Expecter) Get(path interface{}) *MockRequesterPtr_Get_Call {
 	return &MockRequesterPtr_Get_Call{Call: _e.mock.On("Get", path)}
 }
@@ -3918,7 +3918,7 @@ type MockRequesterReturnElided_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockRequesterReturnElided_Expecter) Get(path interface{}) *MockRequesterReturnElided_Get_Call {
 	return &MockRequesterReturnElided_Get_Call{Call: _e.mock.On("Get", path)}
 }
@@ -3972,7 +3972,7 @@ type MockRequesterReturnElided_Put_Call struct {
 }
 
 // Put is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockRequesterReturnElided_Expecter) Put(path interface{}) *MockRequesterReturnElided_Put_Call {
 	return &MockRequesterReturnElided_Put_Call{Call: _e.mock.On("Put", path)}
 }
@@ -4055,7 +4055,7 @@ type MockRequesterSlice_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - path
+//   - path string
 func (_e *MockRequesterSlice_Expecter) Get(path interface{}) *MockRequesterSlice_Get_Call {
 	return &MockRequesterSlice_Get_Call{Call: _e.mock.On("Get", path)}
 }
@@ -4193,7 +4193,7 @@ type MockRequesterVariadicOneArgument_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - values
+//   - values ...string
 func (_e *MockRequesterVariadicOneArgument_Expecter) Get(values ...interface{}) *MockRequesterVariadicOneArgument_Get_Call {
 	return &MockRequesterVariadicOneArgument_Get_Call{Call: _e.mock.On("Get",
 		append([]interface{}{}, values...)...)}
@@ -4246,8 +4246,8 @@ type MockRequesterVariadicOneArgument_MultiWriteToFile_Call struct {
 }
 
 // MultiWriteToFile is a helper method to define mock.On call
-//   - filename
-//   - w
+//   - filename string
+//   - w ...io.Writer
 func (_e *MockRequesterVariadicOneArgument_Expecter) MultiWriteToFile(filename interface{}, w ...interface{}) *MockRequesterVariadicOneArgument_MultiWriteToFile_Call {
 	return &MockRequesterVariadicOneArgument_MultiWriteToFile_Call{Call: _e.mock.On("MultiWriteToFile",
 		append([]interface{}{filename}, w...)...)}
@@ -4300,7 +4300,7 @@ type MockRequesterVariadicOneArgument_OneInterface_Call struct {
 }
 
 // OneInterface is a helper method to define mock.On call
-//   - a
+//   - a ...interface{}
 func (_e *MockRequesterVariadicOneArgument_Expecter) OneInterface(a ...interface{}) *MockRequesterVariadicOneArgument_OneInterface_Call {
 	return &MockRequesterVariadicOneArgument_OneInterface_Call{Call: _e.mock.On("OneInterface",
 		append([]interface{}{}, a...)...)}
@@ -4353,8 +4353,8 @@ type MockRequesterVariadicOneArgument_Sprintf_Call struct {
 }
 
 // Sprintf is a helper method to define mock.On call
-//   - format
-//   - a
+//   - format string
+//   - a ...interface{}
 func (_e *MockRequesterVariadicOneArgument_Expecter) Sprintf(format interface{}, a ...interface{}) *MockRequesterVariadicOneArgument_Sprintf_Call {
 	return &MockRequesterVariadicOneArgument_Sprintf_Call{Call: _e.mock.On("Sprintf",
 		append([]interface{}{format}, a...)...)}
@@ -4435,7 +4435,7 @@ type MockRequesterVariadic_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - values
+//   - values ...string
 func (_e *MockRequesterVariadic_Expecter) Get(values ...interface{}) *MockRequesterVariadic_Get_Call {
 	return &MockRequesterVariadic_Get_Call{Call: _e.mock.On("Get",
 		append([]interface{}{}, values...)...)}
@@ -4495,8 +4495,8 @@ type MockRequesterVariadic_MultiWriteToFile_Call struct {
 }
 
 // MultiWriteToFile is a helper method to define mock.On call
-//   - filename
-//   - w
+//   - filename string
+//   - w ...io.Writer
 func (_e *MockRequesterVariadic_Expecter) MultiWriteToFile(filename interface{}, w ...interface{}) *MockRequesterVariadic_MultiWriteToFile_Call {
 	return &MockRequesterVariadic_MultiWriteToFile_Call{Call: _e.mock.On("MultiWriteToFile",
 		append([]interface{}{filename}, w...)...)}
@@ -4550,7 +4550,7 @@ type MockRequesterVariadic_OneInterface_Call struct {
 }
 
 // OneInterface is a helper method to define mock.On call
-//   - a
+//   - a ...interface{}
 func (_e *MockRequesterVariadic_Expecter) OneInterface(a ...interface{}) *MockRequesterVariadic_OneInterface_Call {
 	return &MockRequesterVariadic_OneInterface_Call{Call: _e.mock.On("OneInterface",
 		append([]interface{}{}, a...)...)}
@@ -4605,8 +4605,8 @@ type MockRequesterVariadic_Sprintf_Call struct {
 }
 
 // Sprintf is a helper method to define mock.On call
-//   - format
-//   - a
+//   - format string
+//   - a ...interface{}
 func (_e *MockRequesterVariadic_Expecter) Sprintf(format interface{}, a ...interface{}) *MockRequesterVariadic_Sprintf_Call {
 	return &MockRequesterVariadic_Sprintf_Call{Call: _e.mock.On("Sprintf",
 		append([]interface{}{format}, a...)...)}
@@ -4731,7 +4731,7 @@ type MockExample_B_Call struct {
 }
 
 // B is a helper method to define mock.On call
-//   - fixtureshttp
+//   - fixtureshttp string
 func (_e *MockExample_Expecter) B(fixtureshttp interface{}) *MockExample_B_Call {
 	return &MockExample_B_Call{Call: _e.mock.On("B", fixtureshttp)}
 }
@@ -4776,7 +4776,7 @@ type MockExample_C_Call struct {
 }
 
 // C is a helper method to define mock.On call
-//   - fixtureshttp
+//   - fixtureshttp string
 func (_e *MockExample_Expecter) C(fixtureshttp interface{}) *MockExample_C_Call {
 	return &MockExample_C_Call{Call: _e.mock.On("C", fixtureshttp)}
 }
@@ -4948,7 +4948,7 @@ type MockStructWithTag_MethodA_Call struct {
 }
 
 // MethodA is a helper method to define mock.On call
-//   - v
+//   - v *struct{FieldA int "json:\"field_a\""; FieldB int "json:\"field_b\" xml:\"field_b\""}
 func (_e *MockStructWithTag_Expecter) MethodA(v interface{}) *MockStructWithTag_MethodA_Call {
 	return &MockStructWithTag_MethodA_Call{Call: _e.mock.On("MethodA", v)}
 }
@@ -5024,7 +5024,7 @@ type MockUnsafeInterface_Do_Call struct {
 }
 
 // Do is a helper method to define mock.On call
-//   - ptr
+//   - ptr *unsafe.Pointer
 func (_e *MockUnsafeInterface_Expecter) Do(ptr interface{}) *MockUnsafeInterface_Do_Call {
 	return &MockUnsafeInterface_Do_Call{Call: _e.mock.On("Do", ptr)}
 }
@@ -5096,8 +5096,8 @@ type MockVariadic_VariadicFunction_Call struct {
 }
 
 // VariadicFunction is a helper method to define mock.On call
-//   - str
-//   - vFunc
+//   - str string
+//   - vFunc VariadicFunction
 func (_e *MockVariadic_Expecter) VariadicFunction(str interface{}, vFunc interface{}) *MockVariadic_VariadicFunction_Call {
 	return &MockVariadic_VariadicFunction_Call{Call: _e.mock.On("VariadicFunction", str, vFunc)}
 }
@@ -5171,7 +5171,7 @@ type MockVariadicReturnFunc_SampleMethod_Call struct {
 }
 
 // SampleMethod is a helper method to define mock.On call
-//   - str
+//   - str string
 func (_e *MockVariadicReturnFunc_Expecter) SampleMethod(str interface{}) *MockVariadicReturnFunc_SampleMethod_Call {
 	return &MockVariadicReturnFunc_SampleMethod_Call{Call: _e.mock.On("SampleMethod", str)}
 }
@@ -5260,8 +5260,8 @@ type MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call struct {
 }
 
 // Foo is a helper method to define mock.On call
-//   - one
-//   - two
+//   - one string
+//   - two ...string
 func (_e *MockVariadicWithMultipleReturnsUnrollVariadic_Expecter) Foo(one interface{}, two ...interface{}) *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call {
 	return &MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call{Call: _e.mock.On("Foo",
 		append([]interface{}{one}, two...)...)}
@@ -5355,8 +5355,8 @@ type MockVariadicWithMultipleReturns_Foo_Call struct {
 }
 
 // Foo is a helper method to define mock.On call
-//   - one
-//   - two
+//   - one string
+//   - two ...string
 func (_e *MockVariadicWithMultipleReturns_Expecter) Foo(one interface{}, two ...interface{}) *MockVariadicWithMultipleReturns_Foo_Call {
 	return &MockVariadicWithMultipleReturns_Foo_Call{Call: _e.mock.On("Foo",
 		append([]interface{}{one}, two...)...)}
@@ -5427,8 +5427,8 @@ type MockVariadicWithNoReturns_Foo_Call struct {
 }
 
 // Foo is a helper method to define mock.On call
-//   - one
-//   - two
+//   - one string
+//   - two ...string
 func (_e *MockVariadicWithNoReturns_Expecter) Foo(one interface{}, two ...interface{}) *MockVariadicWithNoReturns_Foo_Call {
 	return &MockVariadicWithNoReturns_Foo_Call{Call: _e.mock.On("Foo",
 		append([]interface{}{one}, two...)...)}

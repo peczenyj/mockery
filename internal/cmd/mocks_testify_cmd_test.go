@@ -68,7 +68,7 @@ type mockargGetter_GetString_Call struct {
 }
 
 // GetString is a helper method to define mock.On call
-//   - name
+//   - name string
 func (_e *mockargGetter_Expecter) GetString(name interface{}) *mockargGetter_GetString_Call {
 	return &mockargGetter_GetString_Call{Call: _e.mock.On("GetString", name)}
 }

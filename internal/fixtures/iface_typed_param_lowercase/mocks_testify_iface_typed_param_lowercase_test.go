@@ -61,7 +61,7 @@ type MockGetterIfaceTypedParam_Get_Call[a comparable] struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - v
+//   - v a
 func (_e *MockGetterIfaceTypedParam_Expecter[a]) Get(v interface{}) *MockGetterIfaceTypedParam_Get_Call[a] {
 	return &MockGetterIfaceTypedParam_Get_Call[a]{Call: _e.mock.On("Get", v)}
 }

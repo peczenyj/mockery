@@ -120,9 +120,9 @@ type MockInterface2_F_Call struct {
 }
 
 // F is a helper method to define mock.On call
-//   - v
-//   - v1
-//   - s
+//   - v Type
+//   - v1 S
+//   - s subpkg.S
 func (_e *MockInterface2_Expecter) F(v interface{}, v1 interface{}, s interface{}) *MockInterface2_F_Call {
 	return &MockInterface2_F_Call{Call: _e.mock.On("F", v, v1, s)}
 }

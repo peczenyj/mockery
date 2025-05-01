@@ -61,8 +61,8 @@ type MockGenericMultipleTypes_Func_Call[T1 any, T2 any, T3 any] struct {
 }
 
 // Func is a helper method to define mock.On call
-//   - arg1
-//   - arg2
+//   - arg1 *T1
+//   - arg2 T2
 func (_e *MockGenericMultipleTypes_Expecter[T1, T2, T3]) Func(arg1 interface{}, arg2 interface{}) *MockGenericMultipleTypes_Func_Call[T1, T2, T3] {
 	return &MockGenericMultipleTypes_Func_Call[T1, T2, T3]{Call: _e.mock.On("Func", arg1, arg2)}
 }
@@ -134,8 +134,8 @@ type MockIndexListExpr_Func_Call struct {
 }
 
 // Func is a helper method to define mock.On call
-//   - arg1
-//   - arg2
+//   - arg1 *int
+//   - arg2 string
 func (_e *MockIndexListExpr_Expecter) Func(arg1 interface{}, arg2 interface{}) *MockIndexListExpr_Func_Call {
 	return &MockIndexListExpr_Func_Call{Call: _e.mock.On("Func", arg1, arg2)}
 }
