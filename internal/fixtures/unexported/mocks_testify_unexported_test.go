@@ -67,6 +67,7 @@ func (_c *mockfoo_Bar_Call) Run(run func()) *mockfoo_Bar_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
+
 	return _c
 }
 

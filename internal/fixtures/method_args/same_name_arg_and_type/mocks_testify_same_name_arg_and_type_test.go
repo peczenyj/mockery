@@ -68,8 +68,15 @@ func (_e *mockinterfaceA_Expecter) DoB(interfaceB1 interface{}) *mockinterfaceA_
 
 func (_c *mockinterfaceA_DoB_Call) Run(run func(interfaceB1 interfaceB)) *mockinterfaceA_DoB_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(interfaceB))
+		var arg0 interfaceB
+		if args[0] != nil {
+			arg0 = args[0].(interfaceB)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 
@@ -115,8 +122,15 @@ func (_e *mockinterfaceA_Expecter) DoB0(interfaceB interface{}) *mockinterfaceA_
 
 func (_c *mockinterfaceA_DoB0_Call) Run(run func(interfaceB interfaceB0)) *mockinterfaceA_DoB0_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(interfaceB0))
+		var arg0 interfaceB0
+		if args[0] != nil {
+			arg0 = args[0].(interfaceB0)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 
@@ -162,8 +176,15 @@ func (_e *mockinterfaceA_Expecter) DoB0v2(interfaceB01 interface{}) *mockinterfa
 
 func (_c *mockinterfaceA_DoB0v2_Call) Run(run func(interfaceB01 interfaceB0)) *mockinterfaceA_DoB0v2_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(interfaceB0))
+		var arg0 interfaceB0
+		if args[0] != nil {
+			arg0 = args[0].(interfaceB0)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 
@@ -235,6 +256,7 @@ func (_c *mockinterfaceB_GetData_Call) Run(run func()) *mockinterfaceB_GetData_C
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
+
 	return _c
 }
 
@@ -307,8 +329,15 @@ func (_e *mockinterfaceB0_Expecter) DoB0(interfaceB01 interface{}) *mockinterfac
 
 func (_c *mockinterfaceB0_DoB0_Call) Run(run func(interfaceB01 interfaceB0)) *mockinterfaceB0_DoB0_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(interfaceB0))
+		var arg0 interfaceB0
+		if args[0] != nil {
+			arg0 = args[0].(interfaceB0)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 

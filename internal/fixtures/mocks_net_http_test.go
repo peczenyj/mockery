@@ -71,6 +71,7 @@ func (_c *MockResponseWriter_Header_Call) Run(run func()) *MockResponseWriter_He
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
+
 	return _c
 }
 
@@ -123,8 +124,15 @@ func (_e *MockResponseWriter_Expecter) Write(bytes interface{}) *MockResponseWri
 
 func (_c *MockResponseWriter_Write_Call) Run(run func(bytes []byte)) *MockResponseWriter_Write_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 
@@ -157,8 +165,15 @@ func (_e *MockResponseWriter_Expecter) WriteHeader(statusCode interface{}) *Mock
 
 func (_c *MockResponseWriter_WriteHeader_Call) Run(run func(statusCode int)) *MockResponseWriter_WriteHeader_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(int))
+		var arg0 int
+		if args[0] != nil {
+			arg0 = args[0].(int)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 

@@ -178,29 +178,41 @@ func (_e *{{ $expecterNameInstantiated }}) {{ $method.Name }}({{ range $method.P
 
 func (_c *{{ $ExpecterCallNameInstantiated }}) Run(run func({{ $method.ArgList }})) *{{ $ExpecterCallNameInstantiated }} {
 	_c.Call.Run(func(args mock.Arguments) {
-	{{- if not $method.IsVariadic }}
-		run({{range $i, $param := $method.Params }}args[{{$i}}].({{ $param.TypeString}}),{{end}})
-	{{- else}}
-		{{- $variadicParam := index $method.Params (len $method.Params | add -1) }}
-		{{- $nonVariadicParams := slice $method.Params 0 (len $method.Params | add -1 )}}
-		{{- if index $mock.TemplateData "unroll-variadic" }}
+	{{- range $i, $param := $method.Params }}
+		var arg{{ $i }} {{ $param.TypeString }}
+		{{- if and $method.IsVariadic (eq ($i) (len $method.Params))}}
+
+			{{- $variadicParam := index $method.Params (len $method.Params | add -1) }}
+			{{- $nonVariadicParams := slice $method.Params 0 (len $method.Params | add -1 )}}
+
+			{{- if index $mock.TemplateData "unroll-variadic" }}
 		variadicArgs := make([]{{ $variadicParam.TypeStringVariadicUnderlying }}, len(args) - {{len $nonVariadicParams}})
 		for i, a := range args[{{len $nonVariadicParams}}:] {
 			if a != nil {
 				variadicArgs[i] = a.({{ $variadicParam.TypeStringVariadicUnderlying }})
 			}
 		}
-		{{- else }}
+			{{- else }}
 		variadicArgs := args[{{ len $nonVariadicParams }}].({{ $variadicParam.TypeString }})
+			{{- end }}
+		arg{{ $i }} = variadicArgs
+		{{- else }}
+		if args[{{ $i }}] != nil {
+			arg{{ $i }} = args[{{ $i }}].({{ $param.TypeString }})
+		}
 		{{- end }}
+	{{- end }}
 		run(
-		{{- range $i, $param := $method.Params }}
-			{{- if (lt $i (len $nonVariadicParams))}}args[{{$i}}].({{ $param.TypeString }}),
-			{{- else}}variadicArgs...)
-			{{- end}}
-		{{- end}}
-	{{- end}}
+			{{- range $i, $param := $method.Params }}
+			{{- if and ($method.IsVariadic) (eq $i (len $method.Params | add -1 )) }}
+			arg{{ $i }}...,
+			{{- else }}
+			arg{{ $i }},
+			{{- end }}
+			{{- end }}
+		)
 	})
+
 	return _c
 }
 

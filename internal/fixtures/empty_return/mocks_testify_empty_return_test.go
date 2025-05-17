@@ -56,6 +56,7 @@ func (_c *MockEmptyReturn_NoArgs_Call) Run(run func()) *MockEmptyReturn_NoArgs_C
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
+
 	return _c
 }
 
@@ -89,8 +90,20 @@ func (_e *MockEmptyReturn_Expecter) WithArgs(a interface{}, b interface{}) *Mock
 
 func (_c *MockEmptyReturn_WithArgs_Call) Run(run func(a int, b string)) *MockEmptyReturn_WithArgs_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(int), args[1].(string))
+		var arg0 int
+		if args[0] != nil {
+			arg0 = args[0].(int)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
+
 	return _c
 }
 

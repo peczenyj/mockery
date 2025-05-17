@@ -69,8 +69,20 @@ func (_e *MockGenericMultipleTypes_Expecter[T1, T2, T3]) Func(arg1 interface{}, 
 
 func (_c *MockGenericMultipleTypes_Func_Call[T1, T2, T3]) Run(run func(arg1 *T1, arg2 T2)) *MockGenericMultipleTypes_Func_Call[T1, T2, T3] {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(*T1), args[1].(T2))
+		var arg0 *T1
+		if args[0] != nil {
+			arg0 = args[0].(*T1)
+		}
+		var arg1 T2
+		if args[1] != nil {
+			arg1 = args[1].(T2)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
+
 	return _c
 }
 
@@ -142,8 +154,20 @@ func (_e *MockIndexListExpr_Expecter) Func(arg1 interface{}, arg2 interface{}) *
 
 func (_c *MockIndexListExpr_Func_Call) Run(run func(arg1 *int, arg2 string)) *MockIndexListExpr_Func_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(*int), args[1].(string))
+		var arg0 *int
+		if args[0] != nil {
+			arg0 = args[0].(*int)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
+
 	return _c
 }
 

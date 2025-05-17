@@ -57,8 +57,15 @@ func (_e *MockRType_Expecter) Replace1(f interface{}) *MockRType_Replace1_Call {
 
 func (_c *MockRType_Replace1_Call) Run(run func(f rt1.RType1)) *MockRType_Replace1_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(rt1.RType1))
+		var arg0 rt1.RType1
+		if args[0] != nil {
+			arg0 = args[0].(rt1.RType1)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 
@@ -91,8 +98,15 @@ func (_e *MockRType_Expecter) Replace2(f interface{}) *MockRType_Replace2_Call {
 
 func (_c *MockRType_Replace2_Call) Run(run func(f rt2.RType2)) *MockRType_Replace2_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(rt2.RType2))
+		var arg0 rt2.RType2
+		if args[0] != nil {
+			arg0 = args[0].(rt2.RType2)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 
@@ -152,8 +166,15 @@ func (_e *RTypeReplaced1_Expecter) Replace1(f interface{}) *RTypeReplaced1_Repla
 
 func (_c *RTypeReplaced1_Replace1_Call) Run(run func(f rt2.RType2)) *RTypeReplaced1_Replace1_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(rt2.RType2))
+		var arg0 rt2.RType2
+		if args[0] != nil {
+			arg0 = args[0].(rt2.RType2)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 
@@ -186,8 +207,15 @@ func (_e *RTypeReplaced1_Expecter) Replace2(f interface{}) *RTypeReplaced1_Repla
 
 func (_c *RTypeReplaced1_Replace2_Call) Run(run func(f rt2.RType2)) *RTypeReplaced1_Replace2_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(rt2.RType2))
+		var arg0 rt2.RType2
+		if args[0] != nil {
+			arg0 = args[0].(rt2.RType2)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 

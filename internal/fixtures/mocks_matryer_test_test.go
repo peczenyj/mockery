@@ -2725,6 +2725,86 @@ func (mock *MoqUsesOtherPkgIface) ResetCalls() {
 	mock.lockDoSomethingElse.Unlock()
 }
 
+// Ensure that MoqNilRun does implement NilRun.
+// If this is not the case, regenerate this file with mockery.
+var _ NilRun = &MoqNilRun{}
+
+// MoqNilRun is a mock implementation of NilRun.
+//
+//	func TestSomethingThatUsesNilRun(t *testing.T) {
+//
+//		// make and configure a mocked NilRun
+//		mockedNilRun := &MoqNilRun{
+//			FooFunc: func(nilRun NilRun)  {
+//				panic("mock out the Foo method")
+//			},
+//		}
+//
+//		// use mockedNilRun in code that requires NilRun
+//		// and then make assertions.
+//
+//	}
+type MoqNilRun struct {
+	// FooFunc mocks the Foo method.
+	FooFunc func(nilRun NilRun)
+
+	// calls tracks calls to the methods.
+	calls struct {
+		// Foo holds details about calls to the Foo method.
+		Foo []struct {
+			// NilRun is the nilRun argument value.
+			NilRun NilRun
+		}
+	}
+	lockFoo sync.RWMutex
+}
+
+// Foo calls FooFunc.
+func (mock *MoqNilRun) Foo(nilRun NilRun) {
+	callInfo := struct {
+		NilRun NilRun
+	}{
+		NilRun: nilRun,
+	}
+	mock.lockFoo.Lock()
+	mock.calls.Foo = append(mock.calls.Foo, callInfo)
+	mock.lockFoo.Unlock()
+	if mock.FooFunc == nil {
+		return
+	}
+	mock.FooFunc(nilRun)
+}
+
+// FooCalls gets all the calls that were made to Foo.
+// Check the length with:
+//
+//	len(mockedNilRun.FooCalls())
+func (mock *MoqNilRun) FooCalls() []struct {
+	NilRun NilRun
+} {
+	var calls []struct {
+		NilRun NilRun
+	}
+	mock.lockFoo.RLock()
+	calls = mock.calls.Foo
+	mock.lockFoo.RUnlock()
+	return calls
+}
+
+// ResetFooCalls reset all the calls that were made to Foo.
+func (mock *MoqNilRun) ResetFooCalls() {
+	mock.lockFoo.Lock()
+	mock.calls.Foo = nil
+	mock.lockFoo.Unlock()
+}
+
+// ResetCalls reset all the calls that were made to all mocked methods.
+func (mock *MoqNilRun) ResetCalls() {
+	mock.lockFoo.Lock()
+	mock.calls.Foo = nil
+	mock.lockFoo.Unlock()
+}
+
 // Ensure that MoqPanicOnNoReturnValue does implement PanicOnNoReturnValue.
 // If this is not the case, regenerate this file with mockery.
 var _ PanicOnNoReturnValue = &MoqPanicOnNoReturnValue{}

@@ -75,8 +75,15 @@ func (_e *mockargGetter_Expecter) GetString(name interface{}) *mockargGetter_Get
 
 func (_c *mockargGetter_GetString_Call) Run(run func(name string)) *mockargGetter_GetString_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
+
 	return _c
 }
 

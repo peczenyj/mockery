@@ -71,6 +71,7 @@ func (_c *MockGetterIfaceTypedParam_Get_Call[T]) Run(run func()) *MockGetterIfac
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
+
 	return _c
 }
 
