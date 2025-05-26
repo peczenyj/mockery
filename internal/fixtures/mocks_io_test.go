@@ -77,7 +77,13 @@ func (_e *MockReader_Expecter) Read(p interface{}) *MockReader_Read_Call {
 
 func (_c *MockReader_Read_Call) Run(run func(p []byte)) *MockReader_Read_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -158,7 +164,13 @@ func (_e *MockWriter_Expecter) Write(p interface{}) *MockWriter_Write_Call {
 
 func (_c *MockWriter_Write_Call) Run(run func(p []byte)) *MockWriter_Write_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -311,7 +323,18 @@ func (_e *MockSeeker_Expecter) Seek(offset interface{}, whence interface{}) *Moc
 
 func (_c *MockSeeker_Seek_Call) Run(run func(offset int64, whence int)) *MockSeeker_Seek_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(int64), args[1].(int))
+		var arg0 int64
+		if args[0] != nil {
+			arg0 = args[0].(int64)
+		}
+		var arg1 int
+		if args[1] != nil {
+			arg1 = args[1].(int)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -392,7 +415,13 @@ func (_e *MockReadWriter_Expecter) Read(p interface{}) *MockReadWriter_Read_Call
 
 func (_c *MockReadWriter_Read_Call) Run(run func(p []byte)) *MockReadWriter_Read_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -446,7 +475,13 @@ func (_e *MockReadWriter_Expecter) Write(p interface{}) *MockReadWriter_Write_Ca
 
 func (_c *MockReadWriter_Write_Call) Run(run func(p []byte)) *MockReadWriter_Write_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -571,7 +606,13 @@ func (_e *MockReadCloser_Expecter) Read(p interface{}) *MockReadCloser_Read_Call
 
 func (_c *MockReadCloser_Read_Call) Run(run func(p []byte)) *MockReadCloser_Read_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -696,7 +737,13 @@ func (_e *MockWriteCloser_Expecter) Write(p interface{}) *MockWriteCloser_Write_
 
 func (_c *MockWriteCloser_Write_Call) Run(run func(p []byte)) *MockWriteCloser_Write_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -821,7 +868,13 @@ func (_e *MockReadWriteCloser_Expecter) Read(p interface{}) *MockReadWriteCloser
 
 func (_c *MockReadWriteCloser_Read_Call) Run(run func(p []byte)) *MockReadWriteCloser_Read_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -875,7 +928,13 @@ func (_e *MockReadWriteCloser_Expecter) Write(p interface{}) *MockReadWriteClose
 
 func (_c *MockReadWriteCloser_Write_Call) Run(run func(p []byte)) *MockReadWriteCloser_Write_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -956,7 +1015,13 @@ func (_e *MockReadSeeker_Expecter) Read(p interface{}) *MockReadSeeker_Read_Call
 
 func (_c *MockReadSeeker_Read_Call) Run(run func(p []byte)) *MockReadSeeker_Read_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1011,7 +1076,18 @@ func (_e *MockReadSeeker_Expecter) Seek(offset interface{}, whence interface{}) 
 
 func (_c *MockReadSeeker_Seek_Call) Run(run func(offset int64, whence int)) *MockReadSeeker_Seek_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(int64), args[1].(int))
+		var arg0 int64
+		if args[0] != nil {
+			arg0 = args[0].(int64)
+		}
+		var arg1 int
+		if args[1] != nil {
+			arg1 = args[1].(int)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -1136,7 +1212,13 @@ func (_e *MockReadSeekCloser_Expecter) Read(p interface{}) *MockReadSeekCloser_R
 
 func (_c *MockReadSeekCloser_Read_Call) Run(run func(p []byte)) *MockReadSeekCloser_Read_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1191,7 +1273,18 @@ func (_e *MockReadSeekCloser_Expecter) Seek(offset interface{}, whence interface
 
 func (_c *MockReadSeekCloser_Seek_Call) Run(run func(offset int64, whence int)) *MockReadSeekCloser_Seek_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(int64), args[1].(int))
+		var arg0 int64
+		if args[0] != nil {
+			arg0 = args[0].(int64)
+		}
+		var arg1 int
+		if args[1] != nil {
+			arg1 = args[1].(int)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -1273,7 +1366,18 @@ func (_e *MockWriteSeeker_Expecter) Seek(offset interface{}, whence interface{})
 
 func (_c *MockWriteSeeker_Seek_Call) Run(run func(offset int64, whence int)) *MockWriteSeeker_Seek_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(int64), args[1].(int))
+		var arg0 int64
+		if args[0] != nil {
+			arg0 = args[0].(int64)
+		}
+		var arg1 int
+		if args[1] != nil {
+			arg1 = args[1].(int)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -1327,7 +1431,13 @@ func (_e *MockWriteSeeker_Expecter) Write(p interface{}) *MockWriteSeeker_Write_
 
 func (_c *MockWriteSeeker_Write_Call) Run(run func(p []byte)) *MockWriteSeeker_Write_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1408,7 +1518,13 @@ func (_e *MockReadWriteSeeker_Expecter) Read(p interface{}) *MockReadWriteSeeker
 
 func (_c *MockReadWriteSeeker_Read_Call) Run(run func(p []byte)) *MockReadWriteSeeker_Read_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1463,7 +1579,18 @@ func (_e *MockReadWriteSeeker_Expecter) Seek(offset interface{}, whence interfac
 
 func (_c *MockReadWriteSeeker_Seek_Call) Run(run func(offset int64, whence int)) *MockReadWriteSeeker_Seek_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(int64), args[1].(int))
+		var arg0 int64
+		if args[0] != nil {
+			arg0 = args[0].(int64)
+		}
+		var arg1 int
+		if args[1] != nil {
+			arg1 = args[1].(int)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -1517,7 +1644,13 @@ func (_e *MockReadWriteSeeker_Expecter) Write(p interface{}) *MockReadWriteSeeke
 
 func (_c *MockReadWriteSeeker_Write_Call) Run(run func(p []byte)) *MockReadWriteSeeker_Write_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1598,7 +1731,13 @@ func (_e *MockReaderFrom_Expecter) ReadFrom(r interface{}) *MockReaderFrom_ReadF
 
 func (_c *MockReaderFrom_ReadFrom_Call) Run(run func(r io.Reader)) *MockReaderFrom_ReadFrom_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(io.Reader))
+		var arg0 io.Reader
+		if args[0] != nil {
+			arg0 = args[0].(io.Reader)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1679,7 +1818,13 @@ func (_e *MockWriterTo_Expecter) WriteTo(w interface{}) *MockWriterTo_WriteTo_Ca
 
 func (_c *MockWriterTo_WriteTo_Call) Run(run func(w io.Writer)) *MockWriterTo_WriteTo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(io.Writer))
+		var arg0 io.Writer
+		if args[0] != nil {
+			arg0 = args[0].(io.Writer)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1761,7 +1906,18 @@ func (_e *MockReaderAt_Expecter) ReadAt(p interface{}, off interface{}) *MockRea
 
 func (_c *MockReaderAt_ReadAt_Call) Run(run func(p []byte, off int64)) *MockReaderAt_ReadAt_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte), args[1].(int64))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		var arg1 int64
+		if args[1] != nil {
+			arg1 = args[1].(int64)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -1843,7 +1999,18 @@ func (_e *MockWriterAt_Expecter) WriteAt(p interface{}, off interface{}) *MockWr
 
 func (_c *MockWriterAt_WriteAt_Call) Run(run func(p []byte, off int64)) *MockWriterAt_WriteAt_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte), args[1].(int64))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		var arg1 int64
+		if args[1] != nil {
+			arg1 = args[1].(int64)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -2119,7 +2286,13 @@ func (_e *MockByteWriter_Expecter) WriteByte(c interface{}) *MockByteWriter_Writ
 
 func (_c *MockByteWriter_WriteByte_Call) Run(run func(c byte)) *MockByteWriter_WriteByte_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(byte))
+		var arg0 byte
+		if args[0] != nil {
+			arg0 = args[0].(byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -2416,7 +2589,13 @@ func (_e *MockStringWriter_Expecter) WriteString(s interface{}) *MockStringWrite
 
 func (_c *MockStringWriter_WriteString_Call) Run(run func(s string)) *MockStringWriter_WriteString_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }

@@ -129,7 +129,23 @@ func (_e *MockInterface2_Expecter) F(v interface{}, v1 interface{}, s interface{
 
 func (_c *MockInterface2_F_Call) Run(run func(v Type, v1 S, s subpkg.S)) *MockInterface2_F_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(Type), args[1].(S), args[2].(subpkg.S))
+		var arg0 Type
+		if args[0] != nil {
+			arg0 = args[0].(Type)
+		}
+		var arg1 S
+		if args[1] != nil {
+			arg1 = args[1].(S)
+		}
+		var arg2 subpkg.S
+		if args[2] != nil {
+			arg2 = args[2].(subpkg.S)
+		}
+		run(
+			arg0,
+			arg1,
+			arg2,
+		)
 	})
 	return _c
 }

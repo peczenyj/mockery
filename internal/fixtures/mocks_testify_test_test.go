@@ -137,7 +137,13 @@ func (_e *MockFooer_Expecter) Bar(f interface{}) *MockFooer_Bar_Call {
 
 func (_c *MockFooer_Bar_Call) Run(run func(f func([]int))) *MockFooer_Bar_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(func([]int)))
+		var arg0 func([]int)
+		if args[0] != nil {
+			arg0 = args[0].(func([]int))
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -184,7 +190,13 @@ func (_e *MockFooer_Expecter) Baz(path interface{}) *MockFooer_Baz_Call {
 
 func (_c *MockFooer_Baz_Call) Run(run func(path string)) *MockFooer_Baz_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -229,7 +241,13 @@ func (_e *MockFooer_Expecter) Foo(f interface{}) *MockFooer_Foo_Call {
 
 func (_c *MockFooer_Foo_Call) Run(run func(f func(x string) string)) *MockFooer_Foo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(func(x string) string))
+		var arg0 func(x string) string
+		if args[0] != nil {
+			arg0 = args[0].(func(x string) string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -301,7 +319,13 @@ func (_e *MockMapFunc_Expecter) Get(m interface{}) *MockMapFunc_Get_Call {
 
 func (_c *MockMapFunc_Get_Call) Run(run func(m map[string]func(string) string)) *MockMapFunc_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(map[string]func(string) string))
+		var arg0 map[string]func(string) string
+		if args[0] != nil {
+			arg0 = args[0].(map[string]func(string) string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -549,7 +573,13 @@ func (_e *MockConsulLock_Expecter) Lock(valCh interface{}) *MockConsulLock_Lock_
 
 func (_c *MockConsulLock_Lock_Call) Run(run func(valCh <-chan struct{})) *MockConsulLock_Lock_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(<-chan struct{}))
+		var arg0 <-chan struct{}
+		if args[0] != nil {
+			arg0 = args[0].(<-chan struct{})
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -679,7 +709,18 @@ func (_e *MockKeyManager_Expecter) GetKey(s interface{}, v interface{}) *MockKey
 
 func (_c *MockKeyManager_GetKey_Call) Run(run func(s string, v uint16)) *MockKeyManager_GetKey_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string), args[1].(uint16))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 uint16
+		if args[1] != nil {
+			arg1 = args[1].(uint16)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -751,7 +792,13 @@ func (_e *MockBlank_Expecter) Create(x interface{}) *MockBlank_Create_Call {
 
 func (_c *MockBlank_Create_Call) Run(run func(x interface{})) *MockBlank_Create_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(interface{}))
+		var arg0 interface{}
+		if args[0] != nil {
+			arg0 = args[0].(interface{})
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -835,7 +882,18 @@ func (_e *MockExpecterAndRolledVariadic_Expecter) ManyArgsReturns(str interface{
 
 func (_c *MockExpecterAndRolledVariadic_ManyArgsReturns_Call) Run(run func(str string, i int)) *MockExpecterAndRolledVariadic_ManyArgsReturns_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string), args[1].(int))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 int
+		if args[1] != nil {
+			arg1 = args[1].(int)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -913,7 +971,13 @@ func (_e *MockExpecterAndRolledVariadic_Expecter) NoReturn(str interface{}) *Moc
 
 func (_c *MockExpecterAndRolledVariadic_NoReturn_Call) Run(run func(str string)) *MockExpecterAndRolledVariadic_NoReturn_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -965,8 +1029,12 @@ func (_e *MockExpecterAndRolledVariadic_Expecter) Variadic(ints ...interface{}) 
 
 func (_c *MockExpecterAndRolledVariadic_Variadic_Call) Run(run func(ints ...int)) *MockExpecterAndRolledVariadic_Variadic_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 []int
 		variadicArgs := args[0].([]int)
-		run(variadicArgs...)
+		arg0 = variadicArgs
+		run(
+			arg0...,
+		)
 	})
 	return _c
 }
@@ -1020,8 +1088,22 @@ func (_e *MockExpecterAndRolledVariadic_Expecter) VariadicMany(i interface{}, a 
 
 func (_c *MockExpecterAndRolledVariadic_VariadicMany_Call) Run(run func(i int, a string, intfs ...interface{})) *MockExpecterAndRolledVariadic_VariadicMany_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 int
+		if args[0] != nil {
+			arg0 = args[0].(int)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []interface{}
 		variadicArgs := args[2].([]interface{})
-		run(args[0].(int), args[1].(string), variadicArgs...)
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
 	})
 	return _c
 }
@@ -1105,7 +1187,18 @@ func (_e *MockExpecter_Expecter) ManyArgsReturns(str interface{}, i interface{})
 
 func (_c *MockExpecter_ManyArgsReturns_Call) Run(run func(str string, i int)) *MockExpecter_ManyArgsReturns_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string), args[1].(int))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 int
+		if args[1] != nil {
+			arg1 = args[1].(int)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -1183,7 +1276,13 @@ func (_e *MockExpecter_Expecter) NoReturn(str interface{}) *MockExpecter_NoRetur
 
 func (_c *MockExpecter_NoReturn_Call) Run(run func(str string)) *MockExpecter_NoReturn_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1236,13 +1335,17 @@ func (_e *MockExpecter_Expecter) Variadic(ints ...interface{}) *MockExpecter_Var
 
 func (_c *MockExpecter_Variadic_Call) Run(run func(ints ...int)) *MockExpecter_Variadic_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 []int
 		variadicArgs := make([]int, len(args)-0)
 		for i, a := range args[0:] {
 			if a != nil {
 				variadicArgs[i] = a.(int)
 			}
 		}
-		run(variadicArgs...)
+		arg0 = variadicArgs
+		run(
+			arg0...,
+		)
 	})
 	return _c
 }
@@ -1293,13 +1396,27 @@ func (_e *MockExpecter_Expecter) VariadicMany(i interface{}, a interface{}, intf
 
 func (_c *MockExpecter_VariadicMany_Call) Run(run func(i int, a string, intfs ...interface{})) *MockExpecter_VariadicMany_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 int
+		if args[0] != nil {
+			arg0 = args[0].(int)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		var arg2 []interface{}
 		variadicArgs := make([]interface{}, len(args)-2)
 		for i, a := range args[2:] {
 			if a != nil {
 				variadicArgs[i] = a.(interface{})
 			}
 		}
-		run(args[0].(int), args[1].(string), variadicArgs...)
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
 	})
 	return _c
 }
@@ -1367,8 +1484,17 @@ func (_e *MockVariadicNoReturnInterface_Expecter) VariadicNoReturn(j interface{}
 
 func (_c *MockVariadicNoReturnInterface_VariadicNoReturn_Call) Run(run func(j int, is ...interface{})) *MockVariadicNoReturnInterface_VariadicNoReturn_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 int
+		if args[0] != nil {
+			arg0 = args[0].(int)
+		}
+		var arg1 []interface{}
 		variadicArgs := args[1].([]interface{})
-		run(args[0].(int), variadicArgs...)
+		arg1 = variadicArgs
+		run(
+			arg0,
+			arg1...,
+		)
 	})
 	return _c
 }
@@ -1440,7 +1566,13 @@ func (_e *MockFuncArgsCollision_Expecter) Foo(ret interface{}) *MockFuncArgsColl
 
 func (_c *MockFuncArgsCollision_Foo_Call) Run(run func(ret interface{})) *MockFuncArgsCollision_Foo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(interface{}))
+		var arg0 interface{}
+		if args[0] != nil {
+			arg0 = args[0].(interface{})
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1532,7 +1664,13 @@ func (_e *MockRequesterGenerics_Expecter[TAny, TComparable, TSigned, TIntf, TExt
 
 func (_c *MockRequesterGenerics_GenericAnonymousStructs_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric]) Run(run func(val struct{ Type1 TExternalIntf })) *MockRequesterGenerics_GenericAnonymousStructs_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric] {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(struct{ Type1 TExternalIntf }))
+		var arg0 struct{ Type1 TExternalIntf }
+		if args[0] != nil {
+			arg0 = args[0].(struct{ Type1 TExternalIntf })
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1598,7 +1736,18 @@ func (_e *MockRequesterGenerics_Expecter[TAny, TComparable, TSigned, TIntf, TExt
 
 func (_c *MockRequesterGenerics_GenericArguments_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric]) Run(run func(v TAny, v1 TComparable)) *MockRequesterGenerics_GenericArguments_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric] {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(TAny), args[1].(TComparable))
+		var arg0 TAny
+		if args[0] != nil {
+			arg0 = args[0].(TAny)
+		}
+		var arg1 TComparable
+		if args[1] != nil {
+			arg1 = args[1].(TComparable)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -1646,7 +1795,13 @@ func (_e *MockRequesterGenerics_Expecter[TAny, TComparable, TSigned, TIntf, TExt
 
 func (_c *MockRequesterGenerics_GenericStructs_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric]) Run(run func(genericType GenericType[TAny, TIntf])) *MockRequesterGenerics_GenericStructs_Call[TAny, TComparable, TSigned, TIntf, TExternalIntf, TGenIntf, TInlineType, TInlineTypeGeneric] {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(GenericType[TAny, TIntf]))
+		var arg0 GenericType[TAny, TIntf]
+		if args[0] != nil {
+			arg0 = args[0].(GenericType[TAny, TIntf])
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1937,7 +2092,13 @@ func (_e *MockReplaceGeneric_Expecter[TImport, TConstraint, TKeep]) A(t1 interfa
 
 func (_c *MockReplaceGeneric_A_Call[TImport, TConstraint, TKeep]) Run(run func(t1 TImport)) *MockReplaceGeneric_A_Call[TImport, TConstraint, TKeep] {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(TImport))
+		var arg0 TImport
+		if args[0] != nil {
+			arg0 = args[0].(TImport)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -2183,7 +2344,13 @@ func (_e *MockHasConflictingNestedImports_Expecter) Get(path interface{}) *MockH
 
 func (_c *MockHasConflictingNestedImports_Get_Call) Run(run func(path string)) *MockHasConflictingNestedImports_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -2378,7 +2545,13 @@ func (_e *MockImportsSameAsPackage_Expecter) C(c interface{}) *MockImportsSameAs
 
 func (_c *MockImportsSameAsPackage_C_Call) Run(run func(c C)) *MockImportsSameAsPackage_C_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(C))
+		var arg0 C
+		if args[0] != nil {
+			arg0 = args[0].(C)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -2450,7 +2623,13 @@ func (_e *MockGenericInterface_Expecter[M]) Func(arg interface{}) *MockGenericIn
 
 func (_c *MockGenericInterface_Func_Call[M]) Run(run func(arg *M)) *MockGenericInterface_Func_Call[M] {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(*M))
+		var arg0 *M
+		if args[0] != nil {
+			arg0 = args[0].(*M)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -2522,7 +2701,13 @@ func (_e *MockInstantiatedGenericInterface_Expecter) Func(arg interface{}) *Mock
 
 func (_c *MockInstantiatedGenericInterface_Func_Call) Run(run func(arg *float32)) *MockInstantiatedGenericInterface_Func_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(*float32))
+		var arg0 *float32
+		if args[0] != nil {
+			arg0 = args[0].(*float32)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -2603,7 +2788,13 @@ func (_e *MockMyReader_Expecter) Read(p interface{}) *MockMyReader_Read_Call {
 
 func (_c *MockMyReader_Read_Call) Run(run func(p []byte)) *MockMyReader_Read_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]byte))
+		var arg0 []byte
+		if args[0] != nil {
+			arg0 = args[0].([]byte)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -2686,7 +2877,13 @@ func (_e *MockIssue766_Expecter) FetchData(fetchFunc interface{}) *MockIssue766_
 
 func (_c *MockIssue766_FetchData_Call) Run(run func(fetchFunc func(x ...int) ([]int, error))) *MockIssue766_FetchData_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(func(x ...int) ([]int, error)))
+		var arg0 func(x ...int) ([]int, error)
+		if args[0] != nil {
+			arg0 = args[0].(func(x ...int) ([]int, error))
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -2753,8 +2950,12 @@ func (_e *MockMapToInterface_Expecter) Foo(arg1 ...interface{}) *MockMapToInterf
 
 func (_c *MockMapToInterface_Foo_Call) Run(run func(arg1 ...map[string]interface{})) *MockMapToInterface_Foo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 []map[string]interface{}
 		variadicArgs := args[0].([]map[string]interface{})
-		run(variadicArgs...)
+		arg0 = variadicArgs
+		run(
+			arg0...,
+		)
 	})
 	return _c
 }
@@ -2875,7 +3076,13 @@ func (_e *MockUsesOtherPkgIface_Expecter) DoSomethingElse(obj interface{}) *Mock
 
 func (_c *MockUsesOtherPkgIface_DoSomethingElse_Call) Run(run func(obj Sibling)) *MockUsesOtherPkgIface_DoSomethingElse_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(Sibling))
+		var arg0 Sibling
+		if args[0] != nil {
+			arg0 = args[0].(Sibling)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -2886,6 +3093,73 @@ func (_c *MockUsesOtherPkgIface_DoSomethingElse_Call) Return() *MockUsesOtherPkg
 }
 
 func (_c *MockUsesOtherPkgIface_DoSomethingElse_Call) RunAndReturn(run func(obj Sibling)) *MockUsesOtherPkgIface_DoSomethingElse_Call {
+	_c.Run(run)
+	return _c
+}
+
+// NewMockNilRun creates a new instance of MockNilRun. It also registers a testing interface on the mock and a cleanup function to assert the mocks expectations.
+// The first argument is typically a *testing.T value.
+func NewMockNilRun(t interface {
+	mock.TestingT
+	Cleanup(func())
+}) *MockNilRun {
+	mock := &MockNilRun{}
+	mock.Mock.Test(t)
+
+	t.Cleanup(func() { mock.AssertExpectations(t) })
+
+	return mock
+}
+
+// MockNilRun is an autogenerated mock type for the NilRun type
+type MockNilRun struct {
+	mock.Mock
+}
+
+type MockNilRun_Expecter struct {
+	mock *mock.Mock
+}
+
+func (_m *MockNilRun) EXPECT() *MockNilRun_Expecter {
+	return &MockNilRun_Expecter{mock: &_m.Mock}
+}
+
+// Foo provides a mock function for the type MockNilRun
+func (_mock *MockNilRun) Foo(nilRun NilRun) {
+	_mock.Called(nilRun)
+	return
+}
+
+// MockNilRun_Foo_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Foo'
+type MockNilRun_Foo_Call struct {
+	*mock.Call
+}
+
+// Foo is a helper method to define mock.On call
+//   - nilRun NilRun
+func (_e *MockNilRun_Expecter) Foo(nilRun interface{}) *MockNilRun_Foo_Call {
+	return &MockNilRun_Foo_Call{Call: _e.mock.On("Foo", nilRun)}
+}
+
+func (_c *MockNilRun_Foo_Call) Run(run func(nilRun NilRun)) *MockNilRun_Foo_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 NilRun
+		if args[0] != nil {
+			arg0 = args[0].(NilRun)
+		}
+		run(
+			arg0,
+		)
+	})
+	return _c
+}
+
+func (_c *MockNilRun_Foo_Call) Return() *MockNilRun_Foo_Call {
+	_c.Call.Return()
+	return _c
+}
+
+func (_c *MockNilRun_Foo_Call) RunAndReturn(run func(nilRun NilRun)) *MockNilRun_Foo_Call {
 	_c.Run(run)
 	return _c
 }
@@ -3027,7 +3301,13 @@ func (_e *MockRequester_Expecter) Get(path interface{}) *MockRequester_Get_Call 
 
 func (_c *MockRequester_Get_Call) Run(run func(path string)) *MockRequester_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -3099,7 +3379,13 @@ func (_e *MockRequester2_Expecter) Get(path interface{}) *MockRequester2_Get_Cal
 
 func (_c *MockRequester2_Get_Call) Run(run func(path string)) *MockRequester2_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -3304,7 +3590,13 @@ func (_e *MockRequesterArgSameAsImport_Expecter) Get(json1 interface{}) *MockReq
 
 func (_c *MockRequesterArgSameAsImport_Get_Call) Run(run func(json1 string)) *MockRequesterArgSameAsImport_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -3378,7 +3670,13 @@ func (_e *MockRequesterArgSameAsNamedImport_Expecter) Get(json1 interface{}) *Mo
 
 func (_c *MockRequesterArgSameAsNamedImport_Get_Call) Run(run func(json1 string)) *MockRequesterArgSameAsNamedImport_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -3439,7 +3737,13 @@ func (_e *MockRequesterArgSameAsPkg_Expecter) Get(test1 interface{}) *MockReques
 
 func (_c *MockRequesterArgSameAsPkg_Get_Call) Run(run func(test1 string)) *MockRequesterArgSameAsPkg_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -3522,7 +3826,13 @@ func (_e *MockRequesterArray_Expecter) Get(path interface{}) *MockRequesterArray
 
 func (_c *MockRequesterArray_Get_Call) Run(run func(path string)) *MockRequesterArray_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -3595,7 +3905,18 @@ func (_e *MockRequesterElided_Expecter) Get(path interface{}, url interface{}) *
 
 func (_c *MockRequesterElided_Get_Call) Run(run func(path string, url string)) *MockRequesterElided_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string), args[1].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -3749,7 +4070,13 @@ func (_e *MockRequesterNS_Expecter) Get(path interface{}) *MockRequesterNS_Get_C
 
 func (_c *MockRequesterNS_Get_Call) Run(run func(path string)) *MockRequesterNS_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -3832,7 +4159,13 @@ func (_e *MockRequesterPtr_Expecter) Get(path interface{}) *MockRequesterPtr_Get
 
 func (_c *MockRequesterPtr_Get_Call) Run(run func(path string)) *MockRequesterPtr_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -3925,7 +4258,13 @@ func (_e *MockRequesterReturnElided_Expecter) Get(path interface{}) *MockRequest
 
 func (_c *MockRequesterReturnElided_Get_Call) Run(run func(path string)) *MockRequesterReturnElided_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -3979,7 +4318,13 @@ func (_e *MockRequesterReturnElided_Expecter) Put(path interface{}) *MockRequest
 
 func (_c *MockRequesterReturnElided_Put_Call) Run(run func(path string)) *MockRequesterReturnElided_Put_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -4062,7 +4407,13 @@ func (_e *MockRequesterSlice_Expecter) Get(path interface{}) *MockRequesterSlice
 
 func (_c *MockRequesterSlice_Get_Call) Run(run func(path string)) *MockRequesterSlice_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -4201,8 +4552,12 @@ func (_e *MockRequesterVariadicOneArgument_Expecter) Get(values ...interface{}) 
 
 func (_c *MockRequesterVariadicOneArgument_Get_Call) Run(run func(values ...string)) *MockRequesterVariadicOneArgument_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 []string
 		variadicArgs := args[0].([]string)
-		run(variadicArgs...)
+		arg0 = variadicArgs
+		run(
+			arg0...,
+		)
 	})
 	return _c
 }
@@ -4255,8 +4610,17 @@ func (_e *MockRequesterVariadicOneArgument_Expecter) MultiWriteToFile(filename i
 
 func (_c *MockRequesterVariadicOneArgument_MultiWriteToFile_Call) Run(run func(filename string, w ...io.Writer)) *MockRequesterVariadicOneArgument_MultiWriteToFile_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 []io.Writer
 		variadicArgs := args[1].([]io.Writer)
-		run(args[0].(string), variadicArgs...)
+		arg1 = variadicArgs
+		run(
+			arg0,
+			arg1...,
+		)
 	})
 	return _c
 }
@@ -4308,8 +4672,12 @@ func (_e *MockRequesterVariadicOneArgument_Expecter) OneInterface(a ...interface
 
 func (_c *MockRequesterVariadicOneArgument_OneInterface_Call) Run(run func(a ...interface{})) *MockRequesterVariadicOneArgument_OneInterface_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 []interface{}
 		variadicArgs := args[0].([]interface{})
-		run(variadicArgs...)
+		arg0 = variadicArgs
+		run(
+			arg0...,
+		)
 	})
 	return _c
 }
@@ -4362,8 +4730,17 @@ func (_e *MockRequesterVariadicOneArgument_Expecter) Sprintf(format interface{},
 
 func (_c *MockRequesterVariadicOneArgument_Sprintf_Call) Run(run func(format string, a ...interface{})) *MockRequesterVariadicOneArgument_Sprintf_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 []interface{}
 		variadicArgs := args[1].([]interface{})
-		run(args[0].(string), variadicArgs...)
+		arg1 = variadicArgs
+		run(
+			arg0,
+			arg1...,
+		)
 	})
 	return _c
 }
@@ -4443,13 +4820,17 @@ func (_e *MockRequesterVariadic_Expecter) Get(values ...interface{}) *MockReques
 
 func (_c *MockRequesterVariadic_Get_Call) Run(run func(values ...string)) *MockRequesterVariadic_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 []string
 		variadicArgs := make([]string, len(args)-0)
 		for i, a := range args[0:] {
 			if a != nil {
 				variadicArgs[i] = a.(string)
 			}
 		}
-		run(variadicArgs...)
+		arg0 = variadicArgs
+		run(
+			arg0...,
+		)
 	})
 	return _c
 }
@@ -4504,13 +4885,22 @@ func (_e *MockRequesterVariadic_Expecter) MultiWriteToFile(filename interface{},
 
 func (_c *MockRequesterVariadic_MultiWriteToFile_Call) Run(run func(filename string, w ...io.Writer)) *MockRequesterVariadic_MultiWriteToFile_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 []io.Writer
 		variadicArgs := make([]io.Writer, len(args)-1)
 		for i, a := range args[1:] {
 			if a != nil {
 				variadicArgs[i] = a.(io.Writer)
 			}
 		}
-		run(args[0].(string), variadicArgs...)
+		arg1 = variadicArgs
+		run(
+			arg0,
+			arg1...,
+		)
 	})
 	return _c
 }
@@ -4558,13 +4948,17 @@ func (_e *MockRequesterVariadic_Expecter) OneInterface(a ...interface{}) *MockRe
 
 func (_c *MockRequesterVariadic_OneInterface_Call) Run(run func(a ...interface{})) *MockRequesterVariadic_OneInterface_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 []interface{}
 		variadicArgs := make([]interface{}, len(args)-0)
 		for i, a := range args[0:] {
 			if a != nil {
 				variadicArgs[i] = a.(interface{})
 			}
 		}
-		run(variadicArgs...)
+		arg0 = variadicArgs
+		run(
+			arg0...,
+		)
 	})
 	return _c
 }
@@ -4614,13 +5008,22 @@ func (_e *MockRequesterVariadic_Expecter) Sprintf(format interface{}, a ...inter
 
 func (_c *MockRequesterVariadic_Sprintf_Call) Run(run func(format string, a ...interface{})) *MockRequesterVariadic_Sprintf_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 []interface{}
 		variadicArgs := make([]interface{}, len(args)-1)
 		for i, a := range args[1:] {
 			if a != nil {
 				variadicArgs[i] = a.(interface{})
 			}
 		}
-		run(args[0].(string), variadicArgs...)
+		arg1 = variadicArgs
+		run(
+			arg0,
+			arg1...,
+		)
 	})
 	return _c
 }
@@ -4738,7 +5141,13 @@ func (_e *MockExample_Expecter) B(fixtureshttp interface{}) *MockExample_B_Call 
 
 func (_c *MockExample_B_Call) Run(run func(fixtureshttp string)) *MockExample_B_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -4783,7 +5192,13 @@ func (_e *MockExample_Expecter) C(fixtureshttp interface{}) *MockExample_C_Call 
 
 func (_c *MockExample_C_Call) Run(run func(fixtureshttp string)) *MockExample_C_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -4958,10 +5373,19 @@ func (_c *MockStructWithTag_MethodA_Call) Run(run func(v *struct {
 	FieldB int "json:\"field_b\" xml:\"field_b\""
 })) *MockStructWithTag_MethodA_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(*struct {
+		var arg0 *struct {
 			FieldA int "json:\"field_a\""
 			FieldB int "json:\"field_b\" xml:\"field_b\""
-		}))
+		}
+		if args[0] != nil {
+			arg0 = args[0].(*struct {
+				FieldA int "json:\"field_a\""
+				FieldB int "json:\"field_b\" xml:\"field_b\""
+			})
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -5031,7 +5455,13 @@ func (_e *MockUnsafeInterface_Expecter) Do(ptr interface{}) *MockUnsafeInterface
 
 func (_c *MockUnsafeInterface_Do_Call) Run(run func(ptr *unsafe.Pointer)) *MockUnsafeInterface_Do_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(*unsafe.Pointer))
+		var arg0 *unsafe.Pointer
+		if args[0] != nil {
+			arg0 = args[0].(*unsafe.Pointer)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -5104,7 +5534,18 @@ func (_e *MockVariadic_Expecter) VariadicFunction(str interface{}, vFunc interfa
 
 func (_c *MockVariadic_VariadicFunction_Call) Run(run func(str string, vFunc VariadicFunction)) *MockVariadic_VariadicFunction_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string), args[1].(VariadicFunction))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 VariadicFunction
+		if args[1] != nil {
+			arg1 = args[1].(VariadicFunction)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -5178,7 +5619,13 @@ func (_e *MockVariadicReturnFunc_Expecter) SampleMethod(str interface{}) *MockVa
 
 func (_c *MockVariadicReturnFunc_SampleMethod_Call) Run(run func(str string)) *MockVariadicReturnFunc_SampleMethod_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -5269,13 +5716,22 @@ func (_e *MockVariadicWithMultipleReturnsUnrollVariadic_Expecter) Foo(one interf
 
 func (_c *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call) Run(run func(one string, two ...string)) *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 []string
 		variadicArgs := make([]string, len(args)-1)
 		for i, a := range args[1:] {
 			if a != nil {
 				variadicArgs[i] = a.(string)
 			}
 		}
-		run(args[0].(string), variadicArgs...)
+		arg1 = variadicArgs
+		run(
+			arg0,
+			arg1...,
+		)
 	})
 	return _c
 }
@@ -5364,8 +5820,17 @@ func (_e *MockVariadicWithMultipleReturns_Expecter) Foo(one interface{}, two ...
 
 func (_c *MockVariadicWithMultipleReturns_Foo_Call) Run(run func(one string, two ...string)) *MockVariadicWithMultipleReturns_Foo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 []string
 		variadicArgs := args[1].([]string)
-		run(args[0].(string), variadicArgs...)
+		arg1 = variadicArgs
+		run(
+			arg0,
+			arg1...,
+		)
 	})
 	return _c
 }
@@ -5436,13 +5901,22 @@ func (_e *MockVariadicWithNoReturns_Expecter) Foo(one interface{}, two ...interf
 
 func (_c *MockVariadicWithNoReturns_Foo_Call) Run(run func(one string, two ...string)) *MockVariadicWithNoReturns_Foo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 []string
 		variadicArgs := make([]string, len(args)-1)
 		for i, a := range args[1:] {
 			if a != nil {
 				variadicArgs[i] = a.(string)
 			}
 		}
-		run(args[0].(string), variadicArgs...)
+		arg1 = variadicArgs
+		run(
+			arg0,
+			arg1...,
+		)
 	})
 	return _c
 }
