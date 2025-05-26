@@ -160,6 +160,8 @@ var expectedV3Conf string = `_anchors:
 structname: '{{.InterfaceName}}'
 pkgname: mocks
 template: testify
+template-data:
+  unroll-variadic: true
 packages:
   github.com/vektra/mockery/v2/pkg:
     interfaces:
