@@ -193,7 +193,10 @@ func (_c *{{ $ExpecterCallNameInstantiated }}) Run(run func({{ $method.ArgList }
 			}
 		}
 			{{- else }}
-		variadicArgs := args[{{ len $nonVariadicParams }}].({{ $variadicParam.TypeString }})
+		var variadicArgs {{ $variadicParam.TypeString }}
+		if len(args) > {{ len $nonVariadicParams }} {
+			variadicArgs = args[{{ len $nonVariadicParams }}].({{ $variadicParam.TypeString }})
+		}
 			{{- end }}
 		arg{{ $i }} = variadicArgs
 		{{- else }}
