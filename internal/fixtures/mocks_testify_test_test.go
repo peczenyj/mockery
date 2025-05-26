@@ -1030,7 +1030,10 @@ func (_e *MockExpecterAndRolledVariadic_Expecter) Variadic(ints ...interface{}) 
 func (_c *MockExpecterAndRolledVariadic_Variadic_Call) Run(run func(ints ...int)) *MockExpecterAndRolledVariadic_Variadic_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 []int
-		variadicArgs := args[0].([]int)
+		var variadicArgs []int
+		if len(args) > 0 {
+			variadicArgs = args[0].([]int)
+		}
 		arg0 = variadicArgs
 		run(
 			arg0...,
@@ -1097,7 +1100,10 @@ func (_c *MockExpecterAndRolledVariadic_VariadicMany_Call) Run(run func(i int, a
 			arg1 = args[1].(string)
 		}
 		var arg2 []interface{}
-		variadicArgs := args[2].([]interface{})
+		var variadicArgs []interface{}
+		if len(args) > 2 {
+			variadicArgs = args[2].([]interface{})
+		}
 		arg2 = variadicArgs
 		run(
 			arg0,
@@ -1489,7 +1495,10 @@ func (_c *MockVariadicNoReturnInterface_VariadicNoReturn_Call) Run(run func(j in
 			arg0 = args[0].(int)
 		}
 		var arg1 []interface{}
-		variadicArgs := args[1].([]interface{})
+		var variadicArgs []interface{}
+		if len(args) > 1 {
+			variadicArgs = args[1].([]interface{})
+		}
 		arg1 = variadicArgs
 		run(
 			arg0,
@@ -2951,7 +2960,10 @@ func (_e *MockMapToInterface_Expecter) Foo(arg1 ...interface{}) *MockMapToInterf
 func (_c *MockMapToInterface_Foo_Call) Run(run func(arg1 ...map[string]interface{})) *MockMapToInterface_Foo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 []map[string]interface{}
-		variadicArgs := args[0].([]map[string]interface{})
+		var variadicArgs []map[string]interface{}
+		if len(args) > 0 {
+			variadicArgs = args[0].([]map[string]interface{})
+		}
 		arg0 = variadicArgs
 		run(
 			arg0...,
@@ -4553,7 +4565,10 @@ func (_e *MockRequesterVariadicOneArgument_Expecter) Get(values ...interface{}) 
 func (_c *MockRequesterVariadicOneArgument_Get_Call) Run(run func(values ...string)) *MockRequesterVariadicOneArgument_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 []string
-		variadicArgs := args[0].([]string)
+		var variadicArgs []string
+		if len(args) > 0 {
+			variadicArgs = args[0].([]string)
+		}
 		arg0 = variadicArgs
 		run(
 			arg0...,
@@ -4615,7 +4630,10 @@ func (_c *MockRequesterVariadicOneArgument_MultiWriteToFile_Call) Run(run func(f
 			arg0 = args[0].(string)
 		}
 		var arg1 []io.Writer
-		variadicArgs := args[1].([]io.Writer)
+		var variadicArgs []io.Writer
+		if len(args) > 1 {
+			variadicArgs = args[1].([]io.Writer)
+		}
 		arg1 = variadicArgs
 		run(
 			arg0,
@@ -4673,7 +4691,10 @@ func (_e *MockRequesterVariadicOneArgument_Expecter) OneInterface(a ...interface
 func (_c *MockRequesterVariadicOneArgument_OneInterface_Call) Run(run func(a ...interface{})) *MockRequesterVariadicOneArgument_OneInterface_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		var arg0 []interface{}
-		variadicArgs := args[0].([]interface{})
+		var variadicArgs []interface{}
+		if len(args) > 0 {
+			variadicArgs = args[0].([]interface{})
+		}
 		arg0 = variadicArgs
 		run(
 			arg0...,
@@ -4735,7 +4756,10 @@ func (_c *MockRequesterVariadicOneArgument_Sprintf_Call) Run(run func(format str
 			arg0 = args[0].(string)
 		}
 		var arg1 []interface{}
-		variadicArgs := args[1].([]interface{})
+		var variadicArgs []interface{}
+		if len(args) > 1 {
+			variadicArgs = args[1].([]interface{})
+		}
 		arg1 = variadicArgs
 		run(
 			arg0,
@@ -5825,7 +5849,10 @@ func (_c *MockVariadicWithMultipleReturns_Foo_Call) Run(run func(one string, two
 			arg0 = args[0].(string)
 		}
 		var arg1 []string
-		variadicArgs := args[1].([]string)
+		var variadicArgs []string
+		if len(args) > 1 {
+			variadicArgs = args[1].([]string)
+		}
 		arg1 = variadicArgs
 		run(
 			arg0,
