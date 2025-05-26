@@ -160,7 +160,11 @@ func run(ctx context.Context, confPathStr string, v3ConfPath string) error {
 
 	var v3 config.RootConfig
 	var v3Config *config.Config = &config.Config{}
-	v3.TemplateData = map[string]any{}
+	v3Config.TemplateData = map[string]any{}
+	// unroll-variadic is defaulted to true in v2, so we should set this as
+	// the top-level default (unless of course it has been explicitly set
+	// at the top-level v2 config)
+	v3Config.TemplateData["unroll-variadic"] = addr(true)
 
 	tbl := newTableWriter(ctx)
 
