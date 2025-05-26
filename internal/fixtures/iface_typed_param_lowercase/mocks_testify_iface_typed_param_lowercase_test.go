@@ -68,7 +68,13 @@ func (_e *MockGetterIfaceTypedParam_Expecter[a]) Get(v interface{}) *MockGetterI
 
 func (_c *MockGetterIfaceTypedParam_Get_Call[a]) Run(run func(v a)) *MockGetterIfaceTypedParam_Get_Call[a] {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(a))
+		var arg0 a
+		if args[0] != nil {
+			arg0 = args[0].(a)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }

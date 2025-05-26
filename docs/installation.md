@@ -26,7 +26,7 @@ Use the [Docker image](https://hub.docker.com/r/vektra/mockery)
 
 Generate all the mocks for your project:
 
-	docker run -v "$PWD":/src -w /src vektra/mockery --all
+	docker run -v "$PWD":/src -w /src vektra/mockery:3
 
 ### Homebrew
 
