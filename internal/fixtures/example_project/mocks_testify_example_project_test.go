@@ -79,7 +79,6 @@ func (_c *MockRoot_ReturnsFoo_Call) Run(run func()) *MockRoot_ReturnsFoo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -120,7 +119,6 @@ func (_c *MockRoot_TakesBaz_Call) Run(run func(baz *foo.Baz)) *MockRoot_TakesBaz
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -192,7 +190,6 @@ func (_c *MockStringer_String_Call) Run(run func()) *MockStringer_String_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 

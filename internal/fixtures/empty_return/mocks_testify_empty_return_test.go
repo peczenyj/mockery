@@ -56,7 +56,6 @@ func (_c *MockEmptyReturn_NoArgs_Call) Run(run func()) *MockEmptyReturn_NoArgs_C
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -103,7 +102,6 @@ func (_c *MockEmptyReturn_WithArgs_Call) Run(run func(a int, b string)) *MockEmp
 			arg1,
 		)
 	})
-
 	return _c
 }
 

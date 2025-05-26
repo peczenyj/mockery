@@ -83,7 +83,6 @@ func (_c *mockargGetter_GetString_Call) Run(run func(name string)) *mockargGette
 			arg0,
 		)
 	})
-
 	return _c
 }
 

@@ -82,7 +82,6 @@ func (_c *MockGenericMultipleTypes_Func_Call[T1, T2, T3]) Run(run func(arg1 *T1,
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -167,7 +166,6 @@ func (_c *MockIndexListExpr_Func_Call) Run(run func(arg1 *int, arg2 string)) *Mo
 			arg1,
 		)
 	})
-
 	return _c
 }
 

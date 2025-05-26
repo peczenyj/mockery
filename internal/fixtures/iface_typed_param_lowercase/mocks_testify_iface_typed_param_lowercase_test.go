@@ -76,7 +76,6 @@ func (_c *MockGetterIfaceTypedParam_Get_Call[a]) Run(run func(v a)) *MockGetterI
 			arg0,
 		)
 	})
-
 	return _c
 }
 

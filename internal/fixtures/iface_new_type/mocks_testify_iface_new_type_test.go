@@ -56,7 +56,6 @@ func (_c *MockInterface1_Method1_Call) Run(run func()) *MockInterface1_Method1_C
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 

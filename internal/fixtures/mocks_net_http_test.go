@@ -71,7 +71,6 @@ func (_c *MockResponseWriter_Header_Call) Run(run func()) *MockResponseWriter_He
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -132,7 +131,6 @@ func (_c *MockResponseWriter_Write_Call) Run(run func(bytes []byte)) *MockRespon
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -173,7 +171,6 @@ func (_c *MockResponseWriter_WriteHeader_Call) Run(run func(statusCode int)) *Mo
 			arg0,
 		)
 	})
-
 	return _c
 }
 

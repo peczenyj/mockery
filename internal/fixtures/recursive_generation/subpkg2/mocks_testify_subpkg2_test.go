@@ -67,7 +67,6 @@ func (_c *MockFoo_Get_Call) Run(run func()) *MockFoo_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 

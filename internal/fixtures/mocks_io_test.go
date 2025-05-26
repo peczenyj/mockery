@@ -85,7 +85,6 @@ func (_c *MockReader_Read_Call) Run(run func(p []byte)) *MockReader_Read_Call {
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -173,7 +172,6 @@ func (_c *MockWriter_Write_Call) Run(run func(p []byte)) *MockWriter_Write_Call 
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -245,7 +243,6 @@ func (_c *MockCloser_Close_Call) Run(run func()) *MockCloser_Close_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -339,7 +336,6 @@ func (_c *MockSeeker_Seek_Call) Run(run func(offset int64, whence int)) *MockSee
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -427,7 +423,6 @@ func (_c *MockReadWriter_Read_Call) Run(run func(p []byte)) *MockReadWriter_Read
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -488,7 +483,6 @@ func (_c *MockReadWriter_Write_Call) Run(run func(p []byte)) *MockReadWriter_Wri
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -560,7 +554,6 @@ func (_c *MockReadCloser_Close_Call) Run(run func()) *MockReadCloser_Close_Call 
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -621,7 +614,6 @@ func (_c *MockReadCloser_Read_Call) Run(run func(p []byte)) *MockReadCloser_Read
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -693,7 +685,6 @@ func (_c *MockWriteCloser_Close_Call) Run(run func()) *MockWriteCloser_Close_Cal
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -754,7 +745,6 @@ func (_c *MockWriteCloser_Write_Call) Run(run func(p []byte)) *MockWriteCloser_W
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -826,7 +816,6 @@ func (_c *MockReadWriteCloser_Close_Call) Run(run func()) *MockReadWriteCloser_C
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -887,7 +876,6 @@ func (_c *MockReadWriteCloser_Read_Call) Run(run func(p []byte)) *MockReadWriteC
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -948,7 +936,6 @@ func (_c *MockReadWriteCloser_Write_Call) Run(run func(p []byte)) *MockReadWrite
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1036,7 +1023,6 @@ func (_c *MockReadSeeker_Read_Call) Run(run func(p []byte)) *MockReadSeeker_Read
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1103,7 +1089,6 @@ func (_c *MockReadSeeker_Seek_Call) Run(run func(offset int64, whence int)) *Moc
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -1175,7 +1160,6 @@ func (_c *MockReadSeekCloser_Close_Call) Run(run func()) *MockReadSeekCloser_Clo
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -1236,7 +1220,6 @@ func (_c *MockReadSeekCloser_Read_Call) Run(run func(p []byte)) *MockReadSeekClo
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1303,7 +1286,6 @@ func (_c *MockReadSeekCloser_Seek_Call) Run(run func(offset int64, whence int)) 
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -1397,7 +1379,6 @@ func (_c *MockWriteSeeker_Seek_Call) Run(run func(offset int64, whence int)) *Mo
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -1458,7 +1439,6 @@ func (_c *MockWriteSeeker_Write_Call) Run(run func(p []byte)) *MockWriteSeeker_W
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1546,7 +1526,6 @@ func (_c *MockReadWriteSeeker_Read_Call) Run(run func(p []byte)) *MockReadWriteS
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1613,7 +1592,6 @@ func (_c *MockReadWriteSeeker_Seek_Call) Run(run func(offset int64, whence int))
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -1674,7 +1652,6 @@ func (_c *MockReadWriteSeeker_Write_Call) Run(run func(p []byte)) *MockReadWrite
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1762,7 +1739,6 @@ func (_c *MockReaderFrom_ReadFrom_Call) Run(run func(r io.Reader)) *MockReaderFr
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1850,7 +1826,6 @@ func (_c *MockWriterTo_WriteTo_Call) Run(run func(w io.Writer)) *MockWriterTo_Wr
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1944,7 +1919,6 @@ func (_c *MockReaderAt_ReadAt_Call) Run(run func(p []byte, off int64)) *MockRead
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -2038,7 +2012,6 @@ func (_c *MockWriterAt_WriteAt_Call) Run(run func(p []byte, off int64)) *MockWri
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -2119,7 +2092,6 @@ func (_c *MockByteReader_ReadByte_Call) Run(run func()) *MockByteReader_ReadByte
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2200,7 +2172,6 @@ func (_c *MockByteScanner_ReadByte_Call) Run(run func()) *MockByteScanner_ReadBy
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2245,7 +2216,6 @@ func (_c *MockByteScanner_UnreadByte_Call) Run(run func()) *MockByteScanner_Unre
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2324,7 +2294,6 @@ func (_c *MockByteWriter_WriteByte_Call) Run(run func(c byte)) *MockByteWriter_W
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -2411,7 +2380,6 @@ func (_c *MockRuneReader_ReadRune_Call) Run(run func()) *MockRuneReader_ReadRune
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2498,7 +2466,6 @@ func (_c *MockRuneScanner_ReadRune_Call) Run(run func()) *MockRuneScanner_ReadRu
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2543,7 +2510,6 @@ func (_c *MockRuneScanner_UnreadRune_Call) Run(run func()) *MockRuneScanner_Unre
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2631,7 +2597,6 @@ func (_c *MockStringWriter_WriteString_Call) Run(run func(s string)) *MockString
 			arg0,
 		)
 	})
-
 	return _c
 }
 

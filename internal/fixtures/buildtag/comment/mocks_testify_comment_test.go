@@ -86,7 +86,6 @@ func (_c *MockIfaceWithBuildTagInComment_Sprintf_Call) Run(run func(format strin
 			arg1...,
 		)
 	})
-
 	return _c
 }
 

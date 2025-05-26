@@ -78,7 +78,6 @@ func (_c *MockUsesAny_GetReader_Call) Run(run func()) *MockUsesAny_GetReader_Cal
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -146,7 +145,6 @@ func (_c *MockFooer_Bar_Call) Run(run func(f func([]int))) *MockFooer_Bar_Call {
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -200,7 +198,6 @@ func (_c *MockFooer_Baz_Call) Run(run func(path string)) *MockFooer_Baz_Call {
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -252,7 +249,6 @@ func (_c *MockFooer_Foo_Call) Run(run func(f func(x string) string)) *MockFooer_
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -331,7 +327,6 @@ func (_c *MockMapFunc_Get_Call) Run(run func(m map[string]func(string) string)) 
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -405,7 +400,6 @@ func (_c *MockAsyncProducer_Input_Call) Run(run func()) *MockAsyncProducer_Input
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -452,7 +446,6 @@ func (_c *MockAsyncProducer_Output_Call) Run(run func()) *MockAsyncProducer_Outp
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -499,7 +492,6 @@ func (_c *MockAsyncProducer_Whatever_Call) Run(run func()) *MockAsyncProducer_Wh
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -589,7 +581,6 @@ func (_c *MockConsulLock_Lock_Call) Run(run func(valCh <-chan struct{})) *MockCo
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -634,7 +625,6 @@ func (_c *MockConsulLock_Unlock_Call) Run(run func()) *MockConsulLock_Unlock_Cal
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -732,7 +722,6 @@ func (_c *MockKeyManager_GetKey_Call) Run(run func(s string, v uint16)) *MockKey
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -811,7 +800,6 @@ func (_c *MockBlank_Create_Call) Run(run func(x interface{})) *MockBlank_Create_
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -907,7 +895,6 @@ func (_c *MockExpecterAndRolledVariadic_ManyArgsReturns_Call) Run(run func(str s
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -952,7 +939,6 @@ func (_c *MockExpecterAndRolledVariadic_NoArg_Call) Run(run func()) *MockExpecte
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -993,7 +979,6 @@ func (_c *MockExpecterAndRolledVariadic_NoReturn_Call) Run(run func(str string))
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1051,7 +1036,6 @@ func (_c *MockExpecterAndRolledVariadic_Variadic_Call) Run(run func(ints ...int)
 			arg0...,
 		)
 	})
-
 	return _c
 }
 
@@ -1121,7 +1105,6 @@ func (_c *MockExpecterAndRolledVariadic_VariadicMany_Call) Run(run func(i int, a
 			arg2...,
 		)
 	})
-
 	return _c
 }
 
@@ -1217,7 +1200,6 @@ func (_c *MockExpecter_ManyArgsReturns_Call) Run(run func(str string, i int)) *M
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -1262,7 +1244,6 @@ func (_c *MockExpecter_NoArg_Call) Run(run func()) *MockExpecter_NoArg_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -1303,7 +1284,6 @@ func (_c *MockExpecter_NoReturn_Call) Run(run func(str string)) *MockExpecter_No
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1367,7 +1347,6 @@ func (_c *MockExpecter_Variadic_Call) Run(run func(ints ...int)) *MockExpecter_V
 			arg0...,
 		)
 	})
-
 	return _c
 }
 
@@ -1439,7 +1418,6 @@ func (_c *MockExpecter_VariadicMany_Call) Run(run func(i int, a string, intfs ..
 			arg2...,
 		)
 	})
-
 	return _c
 }
 
@@ -1518,7 +1496,6 @@ func (_c *MockVariadicNoReturnInterface_VariadicNoReturn_Call) Run(run func(j in
 			arg1...,
 		)
 	})
-
 	return _c
 }
 
@@ -1597,7 +1574,6 @@ func (_c *MockFuncArgsCollision_Foo_Call) Run(run func(ret interface{})) *MockFu
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1696,7 +1672,6 @@ func (_c *MockRequesterGenerics_GenericAnonymousStructs_Call[TAny, TComparable, 
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1774,7 +1749,6 @@ func (_c *MockRequesterGenerics_GenericArguments_Call[TAny, TComparable, TSigned
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -1829,7 +1803,6 @@ func (_c *MockRequesterGenerics_GenericStructs_Call[TAny, TComparable, TSigned, 
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -1901,7 +1874,6 @@ func (_c *MockGetInt_Get_Call) Run(run func()) *MockGetInt_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -1975,7 +1947,6 @@ func (_c *MockGetGeneric_Get_Call[T]) Run(run func()) *MockGetGeneric_Get_Call[T
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2049,7 +2020,6 @@ func (_c *MockEmbeddedGet_Get_Call[T]) Run(run func()) *MockEmbeddedGet_Get_Call
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2130,7 +2100,6 @@ func (_c *MockReplaceGeneric_A_Call[TImport, TConstraint, TKeep]) Run(run func(t
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -2177,7 +2146,6 @@ func (_c *MockReplaceGeneric_B_Call[TImport, TConstraint, TKeep]) Run(run func()
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2224,7 +2192,6 @@ func (_c *MockReplaceGeneric_C_Call[TImport, TConstraint, TKeep]) Run(run func()
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2298,7 +2265,6 @@ func (_c *MockReplaceGenericSelf_A_Call[T]) Run(run func()) *MockReplaceGenericS
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2386,7 +2352,6 @@ func (_c *MockHasConflictingNestedImports_Get_Call) Run(run func(path string)) *
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -2431,7 +2396,6 @@ func (_c *MockHasConflictingNestedImports_Z_Call) Run(run func()) *MockHasConfli
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2503,7 +2467,6 @@ func (_c *MockImportsSameAsPackage_A_Call) Run(run func()) *MockImportsSameAsPac
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2550,7 +2513,6 @@ func (_c *MockImportsSameAsPackage_B_Call) Run(run func()) *MockImportsSameAsPac
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -2591,7 +2553,6 @@ func (_c *MockImportsSameAsPackage_C_Call) Run(run func(c C)) *MockImportsSameAs
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -2670,7 +2631,6 @@ func (_c *MockGenericInterface_Func_Call[M]) Run(run func(arg *M)) *MockGenericI
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -2749,7 +2709,6 @@ func (_c *MockInstantiatedGenericInterface_Func_Call) Run(run func(arg *float32)
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -2837,7 +2796,6 @@ func (_c *MockMyReader_Read_Call) Run(run func(p []byte)) *MockMyReader_Read_Cal
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -2927,7 +2885,6 @@ func (_c *MockIssue766_FetchData_Call) Run(run func(fetchFunc func(x ...int) ([]
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -3000,7 +2957,6 @@ func (_c *MockMapToInterface_Foo_Call) Run(run func(arg1 ...map[string]interface
 			arg0...,
 		)
 	})
-
 	return _c
 }
 
@@ -3061,7 +3017,6 @@ func (_c *MockSibling_DoSomething_Call) Run(run func()) *MockSibling_DoSomething
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -3129,7 +3084,6 @@ func (_c *MockUsesOtherPkgIface_DoSomethingElse_Call) Run(run func(obj Sibling))
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -3197,7 +3151,6 @@ func (_c *MockNilRun_Foo_Call) Run(run func(nilRun NilRun)) *MockNilRun_Foo_Call
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -3269,7 +3222,6 @@ func (_c *MockPanicOnNoReturnValue_DoSomething_Call) Run(run func()) *MockPanicO
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -3357,7 +3309,6 @@ func (_c *MockRequester_Get_Call) Run(run func(path string)) *MockRequester_Get_
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -3436,7 +3387,6 @@ func (_c *MockRequester2_Get_Call) Run(run func(path string)) *MockRequester2_Ge
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -3508,7 +3458,6 @@ func (_c *MockRequester3_Get_Call) Run(run func()) *MockRequester3_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -3569,7 +3518,6 @@ func (_c *MockRequester4_Get_Call) Run(run func()) *MockRequester4_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -3650,7 +3598,6 @@ func (_c *MockRequesterArgSameAsImport_Get_Call) Run(run func(json1 string)) *Mo
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -3731,7 +3678,6 @@ func (_c *MockRequesterArgSameAsNamedImport_Get_Call) Run(run func(json1 string)
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -3799,7 +3745,6 @@ func (_c *MockRequesterArgSameAsPkg_Get_Call) Run(run func(test1 string)) *MockR
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -3889,7 +3834,6 @@ func (_c *MockRequesterArray_Get_Call) Run(run func(path string)) *MockRequester
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -3974,7 +3918,6 @@ func (_c *MockRequesterElided_Get_Call) Run(run func(path string, url string)) *
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -4048,7 +3991,6 @@ func (_c *MockRequesterIface_Get_Call) Run(run func()) *MockRequesterIface_Get_C
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -4136,7 +4078,6 @@ func (_c *MockRequesterNS_Get_Call) Run(run func(path string)) *MockRequesterNS_
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -4226,7 +4167,6 @@ func (_c *MockRequesterPtr_Get_Call) Run(run func(path string)) *MockRequesterPt
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -4326,7 +4266,6 @@ func (_c *MockRequesterReturnElided_Get_Call) Run(run func(path string)) *MockRe
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -4387,7 +4326,6 @@ func (_c *MockRequesterReturnElided_Put_Call) Run(run func(path string)) *MockRe
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -4477,7 +4415,6 @@ func (_c *MockRequesterSlice_Get_Call) Run(run func(path string)) *MockRequester
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -4538,7 +4475,6 @@ func (_c *mockrequesterUnexported_Get_Call) Run(run func()) *mockrequesterUnexpo
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -4623,7 +4559,6 @@ func (_c *MockRequesterVariadicOneArgument_Get_Call) Run(run func(values ...stri
 			arg0...,
 		)
 	})
-
 	return _c
 }
 
@@ -4687,7 +4622,6 @@ func (_c *MockRequesterVariadicOneArgument_MultiWriteToFile_Call) Run(run func(f
 			arg1...,
 		)
 	})
-
 	return _c
 }
 
@@ -4745,7 +4679,6 @@ func (_c *MockRequesterVariadicOneArgument_OneInterface_Call) Run(run func(a ...
 			arg0...,
 		)
 	})
-
 	return _c
 }
 
@@ -4809,7 +4742,6 @@ func (_c *MockRequesterVariadicOneArgument_Sprintf_Call) Run(run func(format str
 			arg1...,
 		)
 	})
-
 	return _c
 }
 
@@ -4900,7 +4832,6 @@ func (_c *MockRequesterVariadic_Get_Call) Run(run func(values ...string)) *MockR
 			arg0...,
 		)
 	})
-
 	return _c
 }
 
@@ -4971,7 +4902,6 @@ func (_c *MockRequesterVariadic_MultiWriteToFile_Call) Run(run func(filename str
 			arg1...,
 		)
 	})
-
 	return _c
 }
 
@@ -5030,7 +4960,6 @@ func (_c *MockRequesterVariadic_OneInterface_Call) Run(run func(a ...interface{}
 			arg0...,
 		)
 	})
-
 	return _c
 }
 
@@ -5096,7 +5025,6 @@ func (_c *MockRequesterVariadic_Sprintf_Call) Run(run func(format string, a ...i
 			arg1...,
 		)
 	})
-
 	return _c
 }
 
@@ -5170,7 +5098,6 @@ func (_c *MockExample_A_Call) Run(run func()) *MockExample_A_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -5222,7 +5149,6 @@ func (_c *MockExample_B_Call) Run(run func(fixtureshttp string)) *MockExample_B_
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -5274,7 +5200,6 @@ func (_c *MockExample_C_Call) Run(run func(fixtureshttp string)) *MockExample_C_
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -5355,7 +5280,6 @@ func (_c *MockA_Call_Call) Run(run func()) *MockA_Call_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -5463,7 +5387,6 @@ func (_c *MockStructWithTag_MethodA_Call) Run(run func(v *struct {
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -5540,7 +5463,6 @@ func (_c *MockUnsafeInterface_Do_Call) Run(run func(ptr *unsafe.Pointer)) *MockU
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -5625,7 +5547,6 @@ func (_c *MockVariadic_VariadicFunction_Call) Run(run func(str string, vFunc Var
 			arg1,
 		)
 	})
-
 	return _c
 }
 
@@ -5706,7 +5627,6 @@ func (_c *MockVariadicReturnFunc_SampleMethod_Call) Run(run func(str string)) *M
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -5813,7 +5733,6 @@ func (_c *MockVariadicWithMultipleReturnsUnrollVariadic_Foo_Call) Run(run func(o
 			arg1...,
 		)
 	})
-
 	return _c
 }
 
@@ -5913,7 +5832,6 @@ func (_c *MockVariadicWithMultipleReturns_Foo_Call) Run(run func(one string, two
 			arg1...,
 		)
 	})
-
 	return _c
 }
 
@@ -6000,7 +5918,6 @@ func (_c *MockVariadicWithNoReturns_Foo_Call) Run(run func(one string, two ...st
 			arg1...,
 		)
 	})
-
 	return _c
 }
 

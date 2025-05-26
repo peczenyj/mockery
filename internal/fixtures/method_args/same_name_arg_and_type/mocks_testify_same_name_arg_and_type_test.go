@@ -76,7 +76,6 @@ func (_c *mockinterfaceA_DoB_Call) Run(run func(interfaceB1 interfaceB)) *mockin
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -130,7 +129,6 @@ func (_c *mockinterfaceA_DoB0_Call) Run(run func(interfaceB interfaceB0)) *mocki
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -184,7 +182,6 @@ func (_c *mockinterfaceA_DoB0v2_Call) Run(run func(interfaceB01 interfaceB0)) *m
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -256,7 +253,6 @@ func (_c *mockinterfaceB_GetData_Call) Run(run func()) *mockinterfaceB_GetData_C
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -337,7 +333,6 @@ func (_c *mockinterfaceB0_DoB0_Call) Run(run func(interfaceB01 interfaceB0)) *mo
 			arg0,
 		)
 	})
-
 	return _c
 }
 

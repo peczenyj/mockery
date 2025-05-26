@@ -65,7 +65,6 @@ func (_c *MockRType_Replace1_Call) Run(run func(f rt1.RType1)) *MockRType_Replac
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -106,7 +105,6 @@ func (_c *MockRType_Replace2_Call) Run(run func(f rt2.RType2)) *MockRType_Replac
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -174,7 +172,6 @@ func (_c *RTypeReplaced1_Replace1_Call) Run(run func(f rt2.RType2)) *RTypeReplac
 			arg0,
 		)
 	})
-
 	return _c
 }
 
@@ -215,7 +212,6 @@ func (_c *RTypeReplaced1_Replace2_Call) Run(run func(f rt2.RType2)) *RTypeReplac
 			arg0,
 		)
 	})
-
 	return _c
 }
 

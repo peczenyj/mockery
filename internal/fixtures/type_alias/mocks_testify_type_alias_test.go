@@ -68,7 +68,6 @@ func (_c *MockInterface1_Foo_Call) Run(run func()) *MockInterface1_Foo_Call {
 	_c.Call.Run(func(args mock.Arguments) {
 		run()
 	})
-
 	return _c
 }
 
@@ -148,7 +147,6 @@ func (_c *MockInterface2_F_Call) Run(run func(v Type, v1 S, s subpkg.S)) *MockIn
 			arg2,
 		)
 	})
-
 	return _c
 }
 
