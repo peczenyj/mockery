@@ -180,7 +180,7 @@ func (_c *{{ $ExpecterCallNameInstantiated }}) Run(run func({{ $method.ArgList }
 	_c.Call.Run(func(args mock.Arguments) {
 	{{- range $i, $param := $method.Params }}
 		var arg{{ $i }} {{ $param.TypeString }}
-		{{- if and $method.IsVariadic (eq ($i) (len $method.Params))}}
+		{{- if and $method.IsVariadic (eq ($i) (len $method.Params | add -1))}}
 
 			{{- $variadicParam := index $method.Params (len $method.Params | add -1) }}
 			{{- $nonVariadicParams := slice $method.Params 0 (len $method.Params | add -1 )}}

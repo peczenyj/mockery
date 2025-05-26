@@ -79,9 +79,8 @@ func (_c *MockIfaceWithBuildTagInComment_Sprintf_Call) Run(run func(format strin
 			arg0 = args[0].(string)
 		}
 		var arg1 []interface{}
-		if args[1] != nil {
-			arg1 = args[1].([]interface{})
-		}
+		variadicArgs := args[1].([]interface{})
+		arg1 = variadicArgs
 		run(
 			arg0,
 			arg1...,
