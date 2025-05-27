@@ -66,3 +66,17 @@ func TestNoUnrollVariadicRun(t *testing.T) {
 	m.Foo("", "")
 	assert.True(t, ran)
 }
+
+func TestNoUnrollVariadicWithNoVariadicArgument(t *testing.T) {
+	var ran bool
+
+	m := NewMockVariadicWithMultipleReturns(t)
+	m.EXPECT().Foo(mock.Anything, mock.Anything).Run(
+		func(one string, two ...string) {
+			ran = true
+		},
+	).Return("", nil)
+	//nolint: errcheck
+	m.Foo("")
+	assert.True(t, ran)
+}
